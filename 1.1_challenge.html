@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 소개</title>
+    <style>
+        body{
+            background-color: lightcyan;
+            color : darkolivegreen;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        h2{
+            text-align: center;
+            color: cornflowerblue;
+        }
+        hr{
+            height: 5px;
+            border : solid gray;
+            background-color: gray;
+        }
+        span{
+            color: darkblue;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function show(){
+            document.getElementById('fig').style.visibility = 'visible';
+        }
+        function hide(){
+            document.getElementById('fig').style.visibility = 'hidden';
+        }
+    </script>
+</head>
+<body>
+    <h2 onmouseover="show()" onmouseout="hide()">오렌지</h2>
+    <hr>
+    <img src="images/1.1_orange.jpg" alt="오렌지 사진" id="fig">
+    <p>
+        저는 대한민국에서 태어나서 글로벌미디어학부를 전공하는 학생입니다. 제가 제일 좋아하는 과목은 <span>웹프로그래밍</span>입니다. 그 중에서 <span>자바스크립트</span>를 제일 좋아합니다.
+    </p>
+</body>
+</html>
