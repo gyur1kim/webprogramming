@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form tag</title>
+</head>
+<body>
+<form action="" method="get">
+    <label>
+        ID : <input type="text" name="id" size="15" placeholder="id를 입력하세요">
+    </label>
+    <br>
+    <label>
+        password : <input type="password" name="password" size="15">
+    </label>
+    <br><hr>
+
+<!-- 라디오로 선택-->
+    <h3>옷 사이즈 선택하기(radio)</h3>
+    <label>
+        small<input type="radio" name="size" value="small">
+    </label>
+    <label>
+        medium<input type="radio" name="size" value="medium">
+    </label>
+    <label>
+        large<input type="radio" name="size" value="large">
+    </label>
+    <br><br>
+<!-- 체크박스로 선택 -->
+    <h3>옷 색상 선택하기(check)</h3>
+    <label>
+        red<input type="checkbox" name="color" value="red" checked>
+    </label>
+    <label>
+        blue<input type="checkbox" name="color" value="blue">
+    </label>
+    <label>
+        green<input type="checkbox" name="color" value="green">
+    </label>
+    <br><hr>
+
+<!-- 드롭박스에서 국가를 직접 선택함. select -->
+    <label>
+        국가 선택하기(select tag) :
+        <select name="country" size="1" id="country_select">
+            <option value="korea">한국</option>
+            <option value="japan">일본</option>
+            <option value="china">중국</option>
+            <option value="america">미국</option>
+            <option value="germany">독일</option>
+        </select>
+    </label>
+    <br><br>
+<!-- 데이터 목록에서 직접 검색해서 선택할 수 있음. datalist -->
+    <label>
+        국가 선택하기(datalist tag) :
+        <input type="text" list="country_datalist">
+        <datalist id="country_datalist">    <!-- 리스트와 리스트의 id 이름이 같다 -->
+            <option value="한국">
+            <option value="일본">
+            <option value="중국">
+            <option value="이탈리아">
+            <option value="이태리">
+        </datalist>
+    </label>
+    <br><hr>
+
+<!-- type="color"는 색상을 받음. javaScript에서 사용됨-->
+    <label>
+        배경색상 선택하기 :
+        <input type="color" value="#000000" onchange="document.body.style.backgroundColor=this.value">
+    </label>
+    <br><hr>
+
+<!-- number/range로 값 입력받기 -->
+    <label>
+        원하는 숫자 입력(0.0 ~ 10.0) :
+        <input type="number" min="0.0" max="10.0" step="0.5">
+    </label>
+    <br><br>
+<!-- range와 datalist를 같이 사용하면 슬라이드 바 아래에 눈금이 생긴다 -->
+    <label for="temp"> 온도 설정 : </label>
+        10&deg <input type="range" name="temperature" id="temp" min="10" max="30" list="temperature"> 30&deg
+        <datalist id="temperature">
+            <option value="12" label="low">
+            <option value="20" label="medium">
+            <option value="28" label="high">
+        </datalist>
+    <br><hr>
+
+<!-- fieldset 태그는 여러 요소를 하나로 묶어준다 -->
+    <fieldset>
+        <legend>회원 정보 입력</legend>
+        <label for="email">email : </label>
+        <input type="email" id="email" name="email" placeholder="abc@naver.com"><br>
+        <label for="tel">telephone : </label>
+        <input type="tel" id="tel" name="tel" placeholder="010-1234-5678"><br>
+        <label for="url">website : </label>
+        <input type="url" id="url" name="url">
+    </fieldset>
+    <br><hr>
+
+    <button type="reset"><img src="images/3.2_reset.jpg" height="20" alt="초기화버튼"></button>
+    <!-- input에서 value에 적는 것을 button tag에서는 태그로 감싸준다. -->
+    <button type="submit">검색1</button>
+    <input type="submit" value="검색2">
+</form>
+</body>
+</html>
