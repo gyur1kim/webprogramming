@@ -1,0 +1,76 @@
+.relative{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background: crimson;
+    font-size: 2em;
+}
+#up:hover{
+    position: relative;
+    left: 20px;
+    top: 20px;
+    background: forestgreen;
+}
+#down:hover{
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    background: forestgreen;
+}
+
+.absolute{
+    position: relative;
+    display: inline-block;
+    border: 1px solid lightgray;
+}
+div.absolute>p{
+    display: inline-block;
+    position: absolute;
+    height: 50px;
+    width: 35px;
+    background: #07eaf5;
+    color: white;
+    text-align: center;
+}
+p:nth-child(2){
+    left: 50%;
+    top: 5%;
+}
+p:nth-child(3){
+    left: 40%;
+    top: 20%;
+}
+p:nth-child(4){
+    left: 60%;
+    top: 25%;
+}
+p:nth-child(5){
+    left: 25%;
+    top: 50%;
+}
+p:nth-child(6){
+    left: 75%;
+    top: 65%;
+}
+
+.fixed{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    padding: 5px;
+    background: goldenrod;
+    color: white;
+}
+
+#float{
+    float: right;
+    border: 1px dotted black;
+    width: 8em;
+    padding: 0.25em;
+    margin: 1em;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <link type="text/css" rel="stylesheet" href="5.1_position.css">
+</head>
+<body>
+<!-- static은 정적 배치, default -->
+<!-- relative는 상대 배치, 기본 위치에서 움직인다 -->
+<h1>상대 배치(relative)</h1>
+<hr>
+<div class="relative">T</div>
+<div class="relative" id="down">h</div>
+<div class="relative">a</div>
+<div class="relative">n</div>
+<div class="relative" id="up">k</div>
+<div class="relative">s</div>
+<br><br><br>
+<!-- absolute는 절대 배치, 화면 기준으로 이동 -->
+<!-- 단, 조상 중 위치 지정 요소(relative나 absolute)가 있으면 조상 태그 기준으로 이동 -->
+<h1>절대 배치(absolute)</h1>
+<hr>
+<div class="absolute">
+    <img src="images/5.1_tree.jpg" alt="christmas tree">
+    <p>M</p>
+    <p>E</p>
+    <p>R</p>
+    <p>R</p>
+    <p>Y</p>
+</div>
+<br><br><br>
+
+<!-- fixed는 고정 배치, 뷰포트 기준으로 위치가 이동 -->
+<div class="fixed">
+    <strong>고정 배치(fixed)</strong>
+    <hr style="border: 1px solid;">
+    이것은 고정됩니다. 브라우저(뷰포트) 위치를 기준으로!
+</div>
+
+<!-- float는 유동 배치, 왼쪽이나 오른쪽에 항상 배치된다 -->
+<h1>유동 배치(float)</h1>
+<hr>
+<div>
+    <p id="float">
+        이것은 position:float이다.
+        보통 흐름(normal flow)으로부터 빠져(float) 텍스트 및 인라인(inline) 요소가
+        그 주위를 감싸는 자기 컨테이너의 좌우측을 따라 배치되어야 함을 지정합니다.
+    </p>
+    <p>
+        여기에도 문장을 써 넣는다. p는 블럭 태그이기 때문에 하나당 한 줄?을 차지한다.
+        하지만 위의 p가 float, 즉 유동배치를 했기 때문에 오른쪽에 고정되어 보일 것이다.
+        <br><br>
+        오늘은 특별하게 css를 따로 파일로 만들어서 불러왔다.
+        원래 수업시간에 배울 땐 head 태그 안에 style태그를 넣어서 스타일을 지정해줬다.
+        그런데 실무에서는 다들 css를 따로 쓴다고 한다. 그래서 익숙해질 겸 따로 썼다.
+        웹스톰은 자동으로 필요한 속성들이 떠서 편하다. 그런데 오히려 독이 될까 걱정이다.
+        웹스톰은 유료 프로그램이라서 학생 지원 기간이 끝나고 결제하기가 부담스럽다.
+        웹스톰같이 jetBrains를 지원해주는 회사에 가고싶다.
+        <br><br>
+        아직도 채워넣을 글이 모자라다. 더 써야한다.
+        html과 css를 배우는건 쉬운데, 웹개발 카톡방에서는 다들 뭔지 모를 얘기를 하며 떠든다.
+        모르는 거니까 배우는게 겁나긴 한다. 내가 잘 할 수 있을까? 허송세월은 아닐까??
+        그래도 무섭다고 포기하고 싶지는 않다. 할 수 있는 만큼 해보자.
+    </p>
+</div>
+</body>
+</html>
