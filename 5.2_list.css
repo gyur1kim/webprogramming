@@ -1,0 +1,30 @@
+ul#circle{
+    list-style-type: circle;
+}
+ul#square{
+    list-style-type: square;
+}
+ul#korean-hangul-formal{
+    list-style-type: korean-hangul-formal;
+}
+ul#korean-hanja-informal{
+    list-style-type: korean-hanja-informal;
+}
+
+#menubar{
+    background: darkolivegreen;    /*메뉴바의 색상 지정*/
+}
+#menubar ul{
+    padding: 10px;
+}
+#menubar ul li{
+    display: inline-block;     /*블록 형태의 li를 inline-block으로 변형하여 한 줄에 다 보임*/
+    margin: 0 20px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    color: coral;
+}
