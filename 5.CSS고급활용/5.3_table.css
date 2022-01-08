@@ -1,0 +1,61 @@
+span{
+    font-size: 0.7em;
+}
+table{
+    border: 1px solid black;
+}
+td, th{
+    border: 1px dotted green;
+}
+
+/*1. 테두리 관련*/
+table#normal{
+    border-collapse: collapse;  /*테두리가 이중이 아니라 하나로 나타남*/
+}
+
+
+/*2. 셀 크기 관련*/
+table#width th, table#width td{
+    width: 100px;               /*높이 출력은 %로도 가능하다*/
+    height: 20px;
+}
+table#width > thead th{
+    width: 100px;
+    height: 40px;
+}
+
+/*3. 셀 여백 및 정렬*/
+#textalign th, #textalign td{
+    height: 20px;
+    width: 100px;
+    padding: 10px;
+    text-align: right;
+}
+
+/*4. 배경색과 테두리 효과, 줄무늬*/
+table#color{
+    border: 0;
+    border-collapse: collapse;
+}
+#color td, #color th{
+    border: 0;
+    text-align: left;
+    padding: 10px;
+    height: 20px;
+    width: 100px;
+}
+#color thead{
+    background: darkgrey;
+    color: gold;
+}
+#color td, #color tfoot th{
+    border-bottom: 1px solid gray;
+}
+#color tbody tr:nth-child(even){
+    background: aliceblue;  /*짝수 행만 선택함*/
+}
+
+/*응용 - 마우스를 올리면 행의 색에 변화를 주기*/
+tbody tr:hover{
+    background: lightpink;
+}
