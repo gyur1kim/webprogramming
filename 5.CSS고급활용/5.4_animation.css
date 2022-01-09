@@ -1,0 +1,52 @@
+@keyframes textColorAnimation{    /*애니메이션의 이름이 textColorAnimation*/
+    0% {color: blue;}
+    30% {color: green;}
+    100% {color: red;}
+}
+span{
+    animation-name: textColorAnimation;    /*애니메이션 이름, 위에서 정의한 것*/
+    animation-duration: 5s;                   /*애니메이션 시간*/
+    animation-iteration-count: infinite;   /*애니메이션 반복여부*/
+}
+
+h3{
+    transition :font-size 5s;    /*1회 동안 프로퍼티 값 서서히 변화시킴*/
+}
+h3:hover{
+    font-size: 500%;
+}
+
+div{
+    display: inline-block;
+    background: seagreen;
+    color: white;
+    padding: 10px;
+    margin: 0 10px;
+}
+div#rotate{
+    transform: rotate(20deg);    /*다양한 기하학적 모양으로 출력*/
+}
+div#rotate:hover{
+    transform: rotate(80deg);
+}
+div#skew{
+    transform: skew(0, -20deg);
+}
+div#skew:hover{
+    transform: skew(0, -60deg);
+}
+div#translate{
+    transform: translateY(100px);
+}
+div#translate:hover{
+    transform: translate(50px, 100px);
+}
+div#scale{
+    transform: scale(3, 1);
+}
+div#scale:hover{
+    transform: scale(4, 2);
+}
+div#scale:active{
+    transform: scale(1, 5);
+}
