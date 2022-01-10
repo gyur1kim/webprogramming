@@ -1,0 +1,109 @@
+.prob1-1{
+    border: 2px solid seagreen;
+    display: inline-block;
+    width: 200px;
+}
+.prob1-2{
+    border: 2px solid seagreen;
+    display: inline;
+}
+
+.prob2{
+    background: deeppink;
+    color: white;
+    position: fixed;
+    bottom: 8px;
+    padding: 2px;
+    width: 100%;
+}
+
+.prob3 li{
+    display: inline-block;
+    border-bottom: 1px solid black;
+    width: 85%;
+}
+.prob3 button{
+    margin-right: 5px;
+}
+.prob3 button:active{
+    color: magenta;
+}
+.prob3 li::before{
+    content: "";
+    display: list-item;
+    position: absolute;
+}
+
+.prob4{
+    background: aliceblue;
+}
+.prob4 li:hover{
+    background: yellowgreen;
+    margin-right: 10px;
+}
+
+.prob5{
+    float: left;
+    margin: 10px;
+}
+
+@keyframes rotateBear {
+    100% {transform: rotate(360deg);}
+}
+img.prob6{
+    animation-name: rotateBear;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scaleBear {
+    100% {transform: scale(3, 1);}
+}
+img.prob7:hover{
+    animation-name: scaleBear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: left center;
+}
+
+.prob8{
+    width: 180px;
+}
+.prob8 ul{
+    background: darkolivegreen;
+    padding: 10px;
+}
+.prob8 ul li{
+    width: 180px;
+    display: inline-block;     /*블록 형태의 li를 inline-block으로 변형하여 한 줄에 다 보임*/
+    padding: 5px 15px;
+}
+.prob8 li a{
+    text-decoration: none;
+    color: white;
+}
+.prob8 li a:hover{
+    color: coral;
+}
+
+.prob9{
+    border: 3px solid saddlebrown;
+    display: inline-block;
+    width: 300px;
+}
+.prob9 li::marker{
+    list-style-position: inside;
+    margin-top: 10px;
+    font-size: 2em;
+    font-weight: bolder;
+    color: seagreen;
+}
+
+@keyframes textMoving{
+    0% {margin-left: 100%;}
+    100% {margin-left: 0%;}
+}
+.prob10{
+    animation-name: textMoving;
+    animation-duration: 3s;
+}
