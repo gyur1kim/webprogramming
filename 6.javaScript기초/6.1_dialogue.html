@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Dialogue</title>
+    <script>
+        function over(obj){
+            obj.src="/images/6.1_banana.jpg"
+        }
+        function out(obj){
+            obj.src="/images/6.1_apple.png"
+        }
+    </script>
+</head>
+<body>
+<img src="/images/6.1_apple.png" alt="이미지" onclick onmouseover="over(this)" onmouseleave="out(this)" width="500">
+<br><br><br><br><br>
+
+<a href="javascript:alert('누르지 말랬는데')">누르지 마시오</a>
+<br><br><br>
+
+<h2>document.write() 활용하기</h2>
+<hr>
+<script>
+    document.write("<h3>Welcome!</h3>");
+    document.write("<p>만나서 반갑습니다~</p>");
+
+    var ret = prompt("이름을 입력하세요", "김규리");
+    if (ret == ""){
+        alert("이름을 안쓰셨군요");
+    }
+    else{
+        alert('반갑습니다 ' + ret + '님!');
+    }
+
+    var tmp = confirm("확인을 누르실건가요?");
+    if (tmp == true){
+        alert('확인을 누르셨습니다');
+    }
+    else{
+        alert('취소를 누르셨습니다');
+    }
+</script>
+
+</body>
+</html>
