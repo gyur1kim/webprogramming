@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>변수, 연산자</title>
+</head>
+<body>
+<h2>지역변수와 전역변수</h2>
+<hr>
+<pre>
+    var x = 100;
+    function f(){
+        var x = 1;
+        document.write('지역변수 x = ' + x)
+        document.write('전역변수 x = ' + this.x)
+    }
+    f();
+</pre>
+<script>
+    var x = 100;
+    function f(){
+        var x = 1;
+        document.write('지역변수 x = ' + x)
+        document.write('<br>')
+        document.write('전역변수 x = ' + this.x)
+    }
+    f();
+</script>
+<br><br>
+<h2>
+    조건 연산
+</h2>
+<hr>
+<pre>
+    var a=3, b=5;
+    document.write('a = ' + a + ', b = ' + b);
+    document.write('두 수의 차이 : ' + <b>((a>b)?(a-b):(b-a)))</b>;
+</pre>
+<script>
+    var a=3, b=5;
+    document.write('a = ' + a + ', b = ' + b +'<br>');
+    document.write('두 수의 차이 : ' + ((a>b)?(a-b):(b-a)));
+</script>
+<br><br>
+<h2>
+    비트 연산
+</h2>
+<hr>
+<ul>
+    <li>비트 논리 연산(AND, OR, XOR, NOT)</li>
+    <li>비트 시프트 연산(비트 자리를 이동시킴)</li>
+</ul>
+<script>
+    function digit8(v){
+        var str="";
+        for(i=0;i<8;i++, v<<=1){
+            if((v & 0x80)){
+                str += 1;
+            }
+            else{
+                str += 0;
+            }
+        }
+        return str;
+    }
+
+    var c=10, d=3;
+    document.write('<pre>');
+    document.write('c = ' + c + ', d = ' + d + '<br>');
+    document.write("c :            " + digit8(c) + "<br>");
+    document.write("d :            " + digit8(d) + "<br>");
+    document.write("<hr>");
+
+    document.write("c & d :        " + digit8(c&d) + "<br>");
+    document.write("c | d :        " + digit8(c|d) + "<br>");
+    document.write("c ^ d :        " + digit8(c^d) + "<br>");
+    document.write("~c    :        " + digit8(~c) + "<br>");
+    document.write("<hr>");
+
+    document.write("c << 1 :       " + digit8(c<<1) + "(" + (c<<1) + ")" + "<br>");
+    document.write("c >> 1 :       " + digit8(c>>1) + "(" + (c>>1) + ")" + "<br>");
+    document.write("c >>> 1 :      " + digit8(c>>>1) + "(" + (c>>>1) + ")" + "<br>");
+    document.write('</pre>');
+</script>
+<br>
+<h2>문자열 비교</h2>
+<hr>
+<script>
+    var name = "gyuri";
+    document.write("name 변수에 \"gyuri\"가 들어있는가? : " + (name=="gyuri"));
+    document.write("<br>");
+    document.write("name 즉 \"gyuri\"가 kim보다 큰가?(=사전에서 더 뒤에 있는가?) : " + (name > "kim"));
+</script>
+</body>
+</html>
