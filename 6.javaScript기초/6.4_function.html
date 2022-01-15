@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 Function</title>
+</head>
+<body>
+<h3>함수</h3>
+<p>함수는 데이터를 전달받아 철리한 후 결과를 돌려주는(안 돌려줄 수도 있음) 코드블록이다!</p><br>
+<h3>구구단을 출력하는 함수</h3>
+<hr>
+<script>
+    function multi(m){
+        var n = parseInt(m);
+        if (isNaN(n) || n < 1 || n > 9){
+            alert("제대로 입력하지 않았습니다.");
+            return;
+        }
+        for(i = 1; i <10; i++){
+            document.write(n + " * " + i + " = " + n*i + "<br>");
+        }
+    }
+    var n = prompt("구구단 몇 단을 출력할까요? ");
+    multi(n);
+</script>
+</body>
+</html>
