@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if, switch, for, while</title>
+</head>
+<body>
+<h2>if-else문</h2>
+<hr>
+<script>
+    var grade;
+    var score = prompt("성적을 입력하세요");
+    score = parseInt(score);
+
+    if(score >= 90)
+        grade="A";
+    else if(score >= 80)
+        grade="B";
+    else if(score >= 70)
+        grade = "C";
+    else if(score >= 60)
+        grade = "D";
+    else
+        grade = "F";
+
+    if (isNaN(score))
+        document.write("성적을 입력하지 않았습니다!");
+    else
+        document.write(score + "점은 " + grade + " 입니다.<br>");
+</script>
+
+<h2>switch문</h2>
+<hr>
+<p>
+    값에 따라 서로 다른 코드를 실행할 때 적절함. case는 상수만 가능하며, 변수나 식(대소비교)은 사용할 수 없다.<br>
+    break문을 만나지 못하면 계속 다음 case의 실행 문장(= 같은 indent의 문장)을 실행한다. 따라서 case의 끝에는 항상 break를 적어야한다.
+    의도적으로 break를 생략하기도 한다. 예를 들면 case 1, 2, 3, 4, 5가 모두 실행문장이 같다면 case5에만 적으면 된다.
+</p>
+<script>
+    var price = 0;
+    var coffee = prompt("무슨 커피를 드릴까요?" +
+        " 에스프레소 | 카푸치노 | 카페라떼 | 그밖에 ");
+    switch (coffee){
+        case "에스프레소":
+        case "espresso":
+            price = 2000;
+            break;
+        case "카푸치노":
+            price = 3000;
+            break;
+        case "카페라떼":
+            price = 3500;
+            break;
+        default:
+            document.write(coffee + "는(은) 없습니다.<br>");
+    }
+    if (price != 0){
+        document.write(coffee + "는(은) " + price + "원 입니다.<br>");
+    }
+</script>
+<h2>break문 - 1에서 얼마까지 더해야 3000을 넘을까?</h2>
+<hr>
+<script>
+    var i = 1;
+    var sum = 0;
+    while(true){
+        sum += i;
+        if(sum > 3000)
+            break;
+        i++;
+    }
+    document.write(i + "까지 더하면 총 합이 " +  sum + "이므로 3000을 넘습니다.<br>");
+</script>
+<h2>continue - 3으로 나눈 나머지가 1인 수만 더하기</h2>
+<hr>
+<script>
+    var sum = 0;
+    for(i = 1; i <= 10; i++){
+        if(i % 3 != 1)
+            continue;
+        document.write(i + " ");
+        sum += i;
+    }
+    document.write("합은 " + sum + "<br>");
+</script>
+<br>
+<h3>continue와 break는 반복문을 벗어날 때 사용됨!! 조건문과 관련X</h3>
+</body>
+</html>
