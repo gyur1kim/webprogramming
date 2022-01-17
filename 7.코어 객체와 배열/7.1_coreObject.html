@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>코어 객체</title>
+    <script>
+        function pr(msg, arr){
+            document.write(msg + arr.toString() + "<br>");
+        }
+        function breakLine(){
+            document.write("<br>");
+        }
+    </script>
+</head>
+<body>
+<h2>배열과 Array</h2>
+<hr>
+<h3>[]로 배열 만들기</h3>
+<script>
+    var plots = [20, 5, 8, 15, 20];
+    document.write("var plots = [20, 5, 8, 15, 20]<br>");
+
+    for(i=0;i<plots.length;i++){
+        var size = plots[i];
+        for(j=0;j<size;j++){
+            document.write("*");
+        }
+        document.write(plots[i] + "<br>");
+    }
+</script>
+<h3>Array 객체로 배열 만들기</h3>
+<script>
+    var week = new Array(); <!--빈 배열 생성-->
+    document.write(week + "<br>");
+    document.write(typeof(week) + "<br>");
+    week[0] = "월";
+    week[1] = "화";
+    week[2] = "수";
+    week[3] = "목";
+    week[4] = "금";
+    week[5] = "토";
+    week[6] = "일";
+    document.write(week + "<br>");
+</script>
+<h3>Array 객체의 메소드</h3>
+<script>
+    var name1 = new Array("황", "김", "이");
+    var name2 = ["박"];
+    var name3;
+
+    pr("배열 name1 = ", name1);
+    pr("배열 name2 = ", name2);
+    document.write("<hr>");
+
+    name3 = name1.concat(name2);
+    pr("name3 = name1.concat(name2) 후 name3 = ", name3);
+    pr("name3 = name1.concat(name2) 후 name1 = ", name1);
+    breakLine();
+
+    name3 = name1.join("##");
+    pr("name3 = name1.join(\"##\") 후 name3 = ", name3);
+    pr("name3 = name1.join(\"##\") 후 name1 = ", name1);
+    breakLine();
+
+    name3 = name1.reverse();
+    pr("name3 = name1.reverse() 후 name3 = ", name3);
+    pr("name3 = name1.reverse() 후 name1 = ", name1);
+    breakLine();
+
+    name3 = name1.slice(1, 2);
+    pr("name3 = name1.slice(1, 2) 후 name3 = ", name3);
+    pr("name3 = name1.slice(1, 2) 후 name1 = ", name1);
+    breakLine();
+
+    name3 = name1.sort();
+    pr("name3 = name1.sort() 후 name3 = ", name3);
+    pr("name3 = name1.sort() 후 name1 = ", name1);
+    breakLine();
+
+    name3 = name1.toString();
+    document.write("name1.toString() : " + name3);
+    breakLine();
+</script>
+</body>
+</html>
