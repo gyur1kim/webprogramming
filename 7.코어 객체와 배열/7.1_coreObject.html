@@ -94,5 +94,26 @@
     document.write(current.getMinutes() + "분 ");
     document.write(current.getSeconds() + "초<br>");
 </script>
+<h3>Math 객체를 활용한 계산</h3>
+<script>
+    function randInt(){
+        return Math.floor(Math.random()*9) + 1;
+    }
+    var ques = randInt() + "*" + randInt();
+    var user = prompt(ques + "값은 얼마입니까?");
+    if (user == null){
+        document.write("입력을 취소하였습니다.<br>");
+    }
+    else {
+        var answer = eval(ques);
+        if (answer == user){
+            document.write("정답입니다! <br>");
+        }
+        else{
+            document.write("틀렸습니다!<br>");
+        }
+        document.write(ques + "=<strong>" + answer + "</strong>입니다!<br>");
+    }
+</script>
 </body>
 </html>
