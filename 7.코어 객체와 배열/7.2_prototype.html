@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자객체</title>
+    <script>    <!-- 1. new Object를 이용해 객체 만들기(권장 X) -->
+        function inquiry(){
+            return this.balance;
+        }
+        function deposit(money){
+            this.balance += money;
+        }
+        function withdraw(money){
+            this.balance -= money;
+            return money;
+        }
+
+        var account1 = new Object();
+        account1.owner = "김재헌";
+        account1.code = "111";
+        account1.balance = 35000;
+        account1.inquiry = inquiry;
+        account1.deposit = deposit;
+        account1.withdraw = withdraw;
+    </script>
+    <script>    <!--리터럴 표기법을 이용해 객체 만들기-->
+        var account2 = {
+            owner : "김규리",
+            code : "222",
+            balance : 27000,
+
+            inquiry : function(){
+                return this.balance;
+            },
+            deposit : function(money){
+                this.balance += money;
+            },
+            withdraw : function(money){
+                this.balance -= money;
+                return money;
+            }
+        }
+    </script>
+    <script>    <!--프로토타입으로 객체 만들기-->
+        function Account(owner, code, balance){
+            this.owner = owner;
+            this.code = code;
+            this.balance = balance;
+
+            this.inquiry = function(){
+                return this.balance;
+            }
+            this.deposit = function(money){
+                this.balance += money;
+            }
+            this.withdraw = function(money){
+                this.balance -= money;
+                return money;
+            }
+        }
+    </script>
+</head>
+<body>
+<h3>new Object()로 사용자 객체 만들기</h3>
+<script>
+    document.write("account : " + account1.owner + ", " + account1.code + ", " + account1.balance + "<br>");
+    account1.deposit(10000);
+    document.write("10,000원 입금 후 잔액 : " + account1.inquiry() + "<br>");
+    account1.withdraw(6200);
+    document.write("6,200원 출금 후 잔액 : " + account1.inquiry() + "<br><br><hr>");
+</script>
+<h3>리터럴 표기법으로 사용자 객체 만들기</h3>
+<script>
+    document.write("account : " + account2.owner + ", " + account2.code + ", " + account2.balance + "<br>");
+    account2.deposit(10000);
+    document.write("10,000원 입금 후 잔액 : " + account2.inquiry() + "<br>");
+    account2.withdraw(6200);
+    document.write("6,200원 출금 후 잔액 : " + account2.inquiry() + "<br><br><hr>");
+</script>
+<h3>프로토타입으로 객체 만들기</h3>
+<script>
+    var account3 = new Account("김재룽", "333", 149000);
+    document.write("account : " + account3.owner + ", " + account3.code + ", " + account3.balance + "<br>");
+    account3.deposit(10000);
+    document.write("10,000원 입금 후 잔액 : " + account3.inquiry() + "<br>");
+    account3.withdraw(6200);
+    document.write("6,200원 출금 후 잔액 : " + account3.inquiry() + "<br><br><hr>");
+    var account4 = new Account("김규레", "444", 52000);
+    document.write("account : " + account4.owner + ", " + account4.code + ", " + account4.balance + "<br>");
+    account4.deposit(10000);
+    document.write("10,000원 입금 후 잔액 : " + account4.inquiry() + "<br>");
+    account4.withdraw(6200);
+    document.write("6,200원 출금 후 잔액 : " + account4.inquiry() + "<br><br><hr>");
+</script>
+</body>
+</html>
