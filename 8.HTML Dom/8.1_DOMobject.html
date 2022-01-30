@@ -13,9 +13,15 @@
             span.style.border = "3px dashed magenta";
             span.style.margin = "20px"
         }
+
         function changeP(){
             var p = document.getElementById("changeP");
             p.innerHTML = "나의 <img src = '../images/8.1_dog.jpg'> 강아지";
+        }
+
+        function changeButton(obj, size, color){
+            obj.style.color = color;
+            obj.style.fontSize = size;
         }
     </script>
 </head>
@@ -50,6 +56,11 @@
     innerHTML활용
 </h3>
 <hr>
-<p id="changeP" style="color: blue;" onclick="changeP()">여기에 <span style="color: red;">클릭하세요</span></p>
+<p id="changeP" style="color: blue;" onclick="changeP()">여기에 <span style="color: red;">클릭하세요</span></p><br>
+<h3>this 활용하기</h3>
+<hr>
+<button onclick="changeButton(this, '30px', 'red')">빨간색</button>
+<button onclick="changeButton(this, '20px', 'blue')">파란색</button>
+<button onclick="changeButton(this, '25px', 'orange')">주황색</button>
 </body>
 </html>
