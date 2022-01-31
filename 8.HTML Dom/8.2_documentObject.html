@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="myHead">
+    <meta charset="UTF-8">
+    <title>document 객체의 주요 프로퍼티</title>
+    <script>
+        var text = "문서 로딩 중일 때 readyState = " + document.readyState + "\n";
+
+        function changeBackground(){
+            document.body.style.backgroundColor = "white";
+        }
+
+        function findFruits(){
+            var spanArray = document.getElementsByTagName("span");
+            for(var i=0;i<spanArray.length; i++){
+                var span = spanArray[i];
+                span.style.color = "red";
+                span.style.fontSize = "2rem"
+            }
+        }
+
+        var win = null;
+        function showHTML(){
+            if(win == null || win.closed)
+                win = window.open("", "outWin", "width=300, height=200");
+            var textArea = document.getElementById("srcText");
+            win.document.open();
+            win.document.write(textArea.value);
+            win.document.close();
+        }
+    </script>
+</head>
+<body style="background-color: yellow; color: blue;" onload="printProperties()">
+<h3>document의 주요 프로퍼티</h3>
+<a href="www.naver.com">네이버 홈페이지</a>
+<div>이곳은 div 영역입니다.</div>
+<input type="text" id="input" value="여기 포커스가 있읍니다">
+<script>
+    function printProperties(){
+        document.getElementById("input").focus();
+
+        text += "1. location = " + document.location + "\n";
+        text += "2. URL = " + document.URL + "\n";
+        text += "3. title = " + document.title + "\n";
+        text += "4. head의 id = " + document.head.id + "\n";
+        text += "5. body의 color = " + document.body.style.color + "\n";
+        text += "6. domain = " + document.domain + "\n";
+        text += "7. lastModified = " + document.lastModified + "\n";
+        text += "8. defaultView = " + document.defaultView + "\n";
+        text += "9. 문서의 load 완료 후 readyState = " + document.readyState + "\n";
+        text += "10. referer = " + document.referrer + "\n";
+        text += "11. activeElement = " + document.activeElement.value + "\n";
+        text += "12. documentElement의 태그 이름 = " + document.documentElement.tagName + "\n";
+
+        alert(text);
+    }
+</script>
+<hr>
+<button onclick="changeBackground()">배경 색상 흰 색으로</button>
+<hr>
+<h3>
+    태그 이름으로 DOM객체 찾기
+    <button onclick="findFruits()">과일 찾기</button>
+</h3>
+<p>
+    저는 빨간 <span>사과</span>를 좋아해서 아침마다 한 개씩 먹고 있어요. 운동할 때는 중간중간에 <span>바나나</span>를 먹습니다.
+    요즘은 설 선물로 받은 <span>머스캣</span>을 먹고 있습니다. 좀 이따 <span>체리</span> 아이스크림을 사러 갈 것입니다.
+</p>
+<hr>
+<h3>HTML 문서 작성기 만들기</h3>
+<p>
+    아래에 HTML 문서를 작성하고 버튼을 클릭해 보세요.
+    새 윈도우에 HTML 문서가 출력됩니다.
+</p>
+<textarea id="srcText" cols="50" rows="10"></textarea>
+<br>
+<button onclick="showHTML()">HTML 문서 출력하기</button>
+</body>
+</html>

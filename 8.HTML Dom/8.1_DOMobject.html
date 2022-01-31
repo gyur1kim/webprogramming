@@ -13,6 +13,10 @@
             span.style.border = "3px dashed magenta";
             span.style.margin = "20px"
         }
+        function changeHTML(){
+            var p = document.getElementById("changeP");
+            p.innerHTML = "나의 <img src='images/8.1_dog.jpg'> 강아지"
+        }
     </script>
 </head>
 <body>
@@ -41,5 +45,8 @@
     <span id="mySpan" style="color: rebeccapurple;">문장입니다.</span>
 </p>
 <button onclick="change()">스타일 변경하기</button>
+<h3>innerHTML 활용</h3>
+<hr>
+<p id="changeP" style="color: blue;" onclick="changeHTML()">여기에 <span style="color: red;">클릭하세요</span></p>
 </body>
 </html>
