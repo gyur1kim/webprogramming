@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge</title>
+    <link rel="stylesheet" href="8.4_challenge.css">
+    <script src="8.4_challenge.js"></script>
+</head>
+<body>
+<div id="openChallenge">
+    <h2>갬블링 게임</h2>
+    <p>각 숫자를 클릭하면 0에서 2 사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+    <div id="gambling">
+        <span id="firstNum" onclick="randNum(this)">0</span>
+        <span id="secNum" onclick="randNum(this)">0</span>
+        <span id="thirdNum" onclick="randNum(this)">0</span>
+    </div>
+    <div id="gameResult" onclick="resetGame(this)"></div>
+</div>
+<hr>
+
+<div id="prob8_2">
+    <h2>자바스크립트란?
+        <button onclick="drawBorder()">border</button>
+        <button onclick="countP()">p</button>
+    </h2>
+
+    <p class="p">자바스크립트는 웹 프로그래밍 언어로서 웹페이지를 동적으로 변경시킬 수 있다.</p>
+    <p class="p"><span id="border">C언어</span>를 아는 사용자는 빠르게 학습할 수 있다.</p>
+    <p class="p">이벤트 등 GUI 프로그래밍에 필요한 요소들이 있어 학습에 약간의 어려움이 있다.</p>
+</div>
+<hr>
+
+<div id="prob8_3">
+    <h2>빈 칸에 숨은 단어 찾기
+        <button onclick="showHide()">show/hide</button>
+    </h2>
+    <ul>
+        <li>I ( <span>love</span> ) you.</li>
+        <li>CSS is Cascading ( <span>Style</span> ) Sheet.</li>
+        <li>응답하라 ( <span>1988</span> ).</li>
+    </ul>
+</div>
+<hr>
+
+<div id="prob8_4">
+    <h2>계산해봅시다</h2>
+    <p>2 + 4 = <span onclick="this.innerText = 2+4">답</span></p>
+    <p>4 * 20 + 64 = <span onclick="this.innerText = 4*20+64">답</span></p>
+    <p>20 / 5 - 8 * 2 = <span onclick="this.innerText = 20/5-8*2">답</span></p>
+</div>
+<hr>
+
+<div id="prob8_6">
+    <h2>innerHTML 연습하기</h2>
+    <p onclick="travel()">이번 봄에는 어디로 놀러갈까요?</p>
+</div>
+<hr>
+
+<div id="prob8_9">
+    <h2>라면을 끓이는 순서</h2>
+    <ol type="A" onclick="addList()">
+        <li>물을 끓인다.</li>
+    </ol>
+</div>
+<hr>
+
+<div id="prob8_10">
+    <h2>정답 동적 삽입하기</h2>
+    <div>
+        <p>Q. 아이스크림이 길을 건너다 죽었다. 그 이유는?</p>
+        <button onclick="addAnswer(this, '차가와서')">정답 보기</button>
+    </div>
+    <div>
+        <p>Q. 개성공단의 반댓말은?</p>
+        <button onclick="addAnswer(this, '고양이실패단')">정답 보기</button>
+    </div>
+</div>
+<br>
+</body>
+</html>

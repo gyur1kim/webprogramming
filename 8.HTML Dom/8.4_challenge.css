@@ -1,0 +1,39 @@
+/*open challenge*/
+#gambling{
+    display: flex;
+    width: 300px;
+    height: 150px;
+    background-color: #f6e0a6;
+    border: 1px solid #f8b959;
+    align-items: center;
+}
+#gambling>span{
+    flex: 1;
+    color: midnightblue;
+    font-weight: bold;
+    font-size: 80px;
+    text-align: center;
+}
+#gambling>span:hover{
+    cursor: pointer;
+}
+#gameResult{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    color: deeppink;
+}
+#gameResult:hover{
+    cursor: pointer;
+}
+
+/*8-3번*/
+#prob8_3 span{
+    visibility: hidden;
+    color: #2b74d5;
+}
+
+/*8-9번*/
+#prob8_9 ol{
+    background-color: lightseagreen;
+    color: whitesmoke;
+}
