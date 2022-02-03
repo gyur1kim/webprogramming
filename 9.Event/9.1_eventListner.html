@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 리스너 만들기</title>
+    <script>
+        var p1;
+        function init(){
+            p1 = document.getElementById("property");
+            p1.onmouseover = over;
+            p1.onmouseout = out;
+        }
+        function over(){
+            p1.style.backgroundColor='orchid'
+        }
+        function out(){
+            p1.style.backgroundColor='white'
+        }
+    </script>
+</head>
+<body onload="init()">
+<h2>
+    이벤트 리스너를 만드는 법
+    <ol>
+        <li>HTML 태그 내에 작성</li>
+        <li>DOM 객체의 이벤트 리스너 프로퍼티에 작성</li>
+        <li>DOM 객체의 addEventListener() 메소드 이용</li>
+    </ol>
+</h2>
+<hr>
+<button>DOM 객체의 이벤트 리스너 프로퍼티에 작성</button>
+<button>DOM 객체의 addEventListener() 메소드 이용</button>
+<button>익명 함수로 이벤트 리스너 작성</button>
+<h3>1. HTML 태그 내에 작성</h3>
+<p onmouseover="this.style.backgroundColor='orchid'"
+   onmouseout="this.style.backgroundColor='white'">마우스를 올리면 orchid 색으로 변경</p>
+<hr>
+<h3>2. DOM 객체의 이벤트 리스너 프로퍼티에 작성</h3>
+<p id="property">마우스를 올리면 orchid 색으로 변경</p>
+</body>
+</html>
