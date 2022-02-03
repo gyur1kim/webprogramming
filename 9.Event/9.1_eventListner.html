@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>이벤트 리스너 만들기</title>
+    <style>
+        button:first-child{
+            color: tomato;
+        }
+        button:nth-child(2){
+            color: sandybrown;
+        }
+        button:last-child{
+            color: mediumaquamarine;
+        }
+    </style>
     <script>
-        var p1;
-        function init(){
-            p1 = document.getElementById("property");
-            p1.onmouseover = over;
-            p1.onmouseout = out;
+        var p;
+        function property(){
+            p = document.getElementById("changeP");
+            p.removeEventListener("mouseover", overEventListener);
+            p.onmouseover = overProperty;
+            p.onmouseout = out;
         }
-        function over(){
-            p1.style.backgroundColor='orchid'
+        function overProperty(){
+            p.style.backgroundColor='tomato';
         }
+
+        function eventListener(){
+            p = document.getElementById("changeP");
+            p.removeEventListener("mouseover", overProperty);
+            p.addEventListener("mouseover", overEventListener);
+            p.addEventListener("mouseout", out);
+        }
+        function overEventListener(){
+            p.style.backgroundColor='sandybrown';
+        }
+
+        function anonymousFunc(){
+            p = document.getElementById("changeP");
+            p.addEventListener("mouseover", function(){
+                this.style.backgroundColor='mediumaquamarine';
+            });
+            p.addEventListener("mouseout", out)
+        }
+
         function out(){
-            p1.style.backgroundColor='white'
+            p.style.backgroundColor='white';
         }
     </script>
 </head>
-<body onload="init()">
+<body>
 <h2>
     이벤트 리스너를 만드는 법
     <ol>
@@ -28,14 +59,16 @@
     </ol>
 </h2>
 <hr>
-<button>DOM 객체의 이벤트 리스너 프로퍼티에 작성</button>
-<button>DOM 객체의 addEventListener() 메소드 이용</button>
-<button>익명 함수로 이벤트 리스너 작성</button>
+
 <h3>1. HTML 태그 내에 작성</h3>
 <p onmouseover="this.style.backgroundColor='orchid'"
    onmouseout="this.style.backgroundColor='white'">마우스를 올리면 orchid 색으로 변경</p>
 <hr>
-<h3>2. DOM 객체의 이벤트 리스너 프로퍼티에 작성</h3>
-<p id="property">마우스를 올리면 orchid 색으로 변경</p>
+<h3>버튼을 누르며 다양하게 이벤트 리스너를 만들어보세요
+    <button onclick="property()">DOM 객체의 이벤트 리스너 프로퍼티에 작성</button>
+    <button onclick="eventListener()">DOM 객체의 addEventListener() 메소드 이용</button>
+    <button onclick="anonymousFunc()">익명 함수로 이벤트 리스너 작성</button>
+</h3>
+<p id="changeP">마우스를 올리면 다양한 색으로 변경</p>
 </body>
 </html>
