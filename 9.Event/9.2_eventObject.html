@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 객체</title>
+    <script>
+        function f(e){
+            var text = "type : " + e.type + "<br>" +
+                "target : " + e.target + "<br>" +
+                "currentTarget : " + e.currentTarget + "<br>" +
+                "defaultPrevented : " + e.defaultPrevented;
+            var p = document.getElementById("p");
+            p.innerHTML = text;
+        }
+        function query(){
+            var ret = confirm("네이버로 이동하시겠습니까?");
+            return ret;
+        }
+        function noAction(e){
+            e.preventDefault();
+        }
+    </script>
+</head>
+<body>
+<h3>이벤트 객체 프로퍼티 출력하기</h3>
+<p id="p">버튼을 클릭하면 이벤트 객체를 출력합니다.</p>
+<button onclick="f(event)">클릭하세요</button>
+<hr>
+<h3>이벤트 디폴트 행동의 취소</h3>
+<a href="https://www.naver.com" onclick="return query()">네이버로 이동하는지 물어보는 링크</a>
+<hr>
+<form>
+    <input type="checkbox">빵(체크 됨)<br>
+    <input type="checkbox" onclick="noAction(event)">술(체크 안됨)
+</form>
+</body>
+</html>
