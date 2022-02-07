@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 핸들링하기</title>
+    <script>
+        var width = 1;
+        function down(obj){
+            obj.style.fontStyle = "italic";
+        }
+        function up(obj){
+            obj.style.fontStyle = "normal";
+        }
+        function over(obj){
+            obj.style.borderColor = "violet";
+        }
+        function out(obj){
+            obj.style.borderColor = "lightgray";
+        }
+        function wheel(e, obj){
+            if(e.wheelDelta < 0){
+                width--;
+                if(width < 0){
+                    width = 0;
+                }
+            }
+            else{
+                width++;
+            }
+            obj.style.borderStyle = "ridge";
+            obj.style.borderWidth = width + "px";
+        }
+
+        function hideMenu(){
+            alert("오른쪽 클릭 <컨텍스트 메뉴> 금지");
+            return false;
+        }
+        document.oncontextmenu = hideMenu;
+    </script>
+    <style>
+        span{border: 3px dotted black;}
+    </style>
+</head>
+<body>
+<h3>마우스 관련 이벤트 리스너</h3>
+<div>마우스 관련
+    <span onmousedown="down(this)" onmouseup="up(this)"
+          onmouseover="over(this)" onmouseout="out(this)"
+          onwheel="wheel(event, this)">이벤트</span>
+    가 발생합니다.</div>
+<hr>
+<h3>마우스 이벤트 객체의 프로퍼티와 onmousemove</h3>
+<img src="image.jpg" onmousemove="where(event)"><br><br>
+<div id="div"></div>
+<script>
+    var div = document.getElementById("div")
+    function where(e){
+        var text = "버튼 = " + e.button + "<br>";
+        text += "(screenX, screenY) = " + e.screenX + ", " + e.screenY + "<br>";
+        text += "(clientX, clientY) = " + e.clientX + ", " + e.clientY + "<br>";
+        text += "(offsetX, offsetY) = " + e.offsetX + ", " + e.offsetY + "<br>";
+        text += "(X, Y) = " + e.x + ", " + e.y + "<br>";
+        div.innerHTML = text;
+    }
+</script>
+<hr>
+<h3>oncontextmenu에서 contextmenu 금지하기</h3>
+<p>마우스 오른쪽 클릭은 금지됩니다. 아무곳이나 클릭해도 컨텍스트 메뉴를 볼 수 없습니다.</p>
+</body>
+</html>

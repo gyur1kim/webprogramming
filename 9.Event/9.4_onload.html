@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onload 이벤트리스너</title>
+    <script>
+        function changeImg(){
+            var sel = document.getElementById("sel");
+            var img = document.getElementById("myImg");
+            img.onload = function(){
+                var span = document.getElementById("mySpan");
+                span.innerHTML = img.width + "x" + img.height;
+            };
+            var index = sel.selectedIndex;
+            img.src = sel.options[index].value;
+        }
+
+        var files = ["../images/9.4_apple.png", "../images/9.4_banana.jpg", "../images/9.4_mango.jpg", "../images/9.4_orange.jpg"];
+        var imgs = new Array();
+        for(i=0;i<files.length;i++){
+            imgs[i] = new Image();
+            imgs[i].src = files[i];
+        }
+
+        var next = 1;
+        function change(img){
+            img.src = imgs[next].src;
+            next++;
+            next %= imgs.length;
+        }
+    </script>
+</head>
+<body onload="changeImg()">
+<h3>onload로 이미지 크기 출력하기</h3>
+<form>
+    <select id="sel" onclick="changeImg()">
+        <option value="../images/9.4_apple.png">사과</option>
+        <option value="../images/9.4_banana.jpg">바나나</option>
+        <option value="../images/9.4_mango.jpg">망고</option>
+        <option value="../images/9.4_orange.jpg">오렌지</option>
+    </select>
+    <span id="mySpan">이미지크기</span>
+</form>
+<p><img id="myImg" src="../images/9.4_apple.png" alt="."></p>
+<hr>
+<h3>new Image()로 이미지 로딩</h3>
+<p>이미지를 클릭하면 다음 이미지를 보여줍니다.</p>
+<img style="border: 20px ridge wheat" src="../images/9.4_apple.png" alt="." width="200" height="200" onclick="change(this)">
+</body>
+</html>
