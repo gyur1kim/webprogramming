@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>폼 이벤트, 키 이벤트</title>
+    <script>
+        function findChecked(){
+            var found = null;
+            var cities = document.getElementsByName("city");
+            for(i=0;i<cities.length;i++){
+                if(cities[i].checked === true){
+                    found = cities[i];
+                }
+            }
+            if(found != null){
+                alert(found.value + "가 선택되었습니다.");
+            }
+            else{
+                alert("아무 도시도 선택되지 않았습니다.");
+            }
+        }
+
+        var price = 0;
+        function calc(item){
+            if(item.checked === true){
+                price += parseInt(item.value);
+            }
+            else{
+                price -= parseInt(item.value);
+            }
+            document.getElementById("subText").value = price;
+        }
+
+        function drawImg(){
+            var sel = document.getElementById("fruits");
+            var idx = sel.selectedIndex;
+            var img = document.getElementById("fruitImg");
+            img.src = sel.options[idx].value;
+        }
+    </script>
+</head>
+<body onload="drawImg()">
+<h3>선택된 라디오버튼 알아내기</h3>
+<form>
+    <input type="radio" name="city" value="seoul">서울
+    <input type="radio" name="city" value="busan">부산
+    <input type="radio" name="city" value="chuncheon">춘천
+    <input type="button" onclick="findChecked()" value="선택된 도시 찾기">
+</form>
+<hr>
+<h3>선택된 물품 계산하기</h3>
+<form>
+    <input type="checkbox" name="hat" value="10000" onclick="calc(this)">모자 1만원
+    <input type="checkbox" name="shoes" value="25000" onclick="calc(this)">신발 2만5천원
+    <input type="checkbox" name="dress" value="50000" onclick="calc(this)">드레스 5만원
+    지불하실 금액 : <input type="text" id="subText" value="0">
+</form>
+<hr>
+<h3>select 객체에서 선택한 과일 출력하기</h3>
+<select id="fruits" onchange="drawImg()">
+    <option value="../images/9.4_apple.png">사과</option>
+    <option value="../images/9.4_banana.jpg">바나나</option>
+    <option value="../images/9.4_mango.jpg">망고</option>
+    <option value="../images/9.4_orange.jpg" selected>오렌지</option>
+</select>
+<img id="fruitImg" src="../images/9.4_apple.png" alt="." height="400">
+</body>
+</html>
