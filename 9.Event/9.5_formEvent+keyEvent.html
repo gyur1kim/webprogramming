@@ -3,41 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>폼 이벤트, 키 이벤트</title>
-    <script>
-        function findChecked(){
-            var found = null;
-            var cities = document.getElementsByName("city");
-            for(i=0;i<cities.length;i++){
-                if(cities[i].checked === true){
-                    found = cities[i];
-                }
-            }
-            if(found != null){
-                alert(found.value + "가 선택되었습니다.");
-            }
-            else{
-                alert("아무 도시도 선택되지 않았습니다.");
-            }
-        }
-
-        var price = 0;
-        function calc(item){
-            if(item.checked === true){
-                price += parseInt(item.value);
-            }
-            else{
-                price -= parseInt(item.value);
-            }
-            document.getElementById("subText").value = price;
-        }
-
-        function drawImg(){
-            var sel = document.getElementById("fruits");
-            var idx = sel.selectedIndex;
-            var img = document.getElementById("fruitImg");
-            img.src = sel.options[idx].value;
-        }
-    </script>
+    <script src="9.5_formEvent+keyEvent.js"></script>
 </head>
 <body onload="drawImg()">
 <h3>선택된 라디오버튼 알아내기</h3>
@@ -64,5 +30,10 @@
     <option value="../images/9.4_orange.jpg" selected>오렌지</option>
 </select>
 <img id="fruitImg" src="../images/9.4_apple.png" alt="." height="400">
+<hr>
+<h3>키 이벤트 리스너</h3>
+<p>텍스트 창에 키를 눌러보세요. ALT, SHIFT, CTRL키도 가능합니다.</p>
+<input type="text" id="text" onkeydown="whatKeyDown(event)">
+<div id="div" style="margin-top:10px; background-color: lightsteelblue; width: 250px; height:50px"></div>
 </body>
 </html>
