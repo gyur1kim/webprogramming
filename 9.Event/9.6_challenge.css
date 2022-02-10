@@ -1,0 +1,8 @@
+#challengeProb>table{
+    border-collapse: collapse;
+}
+#challengeProb td{
+    border: 1px solid #40156b;
+    width: 50px;
+    height: 50px;
+}
