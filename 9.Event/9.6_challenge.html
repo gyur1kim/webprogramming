@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="9.6_challenge.css">
     <script src="9.6_challenge.js"></script>
 </head>
-<body onload="randImg()">
-<h3>마우스 클릭 연습</h3>
+<body>
+<h3>Challenge. 마우스 클릭 연습</h3>
 <div id="challengeProb">
     <table>
         <tr>
@@ -133,9 +133,73 @@
     </table>
 </div>
 <hr>
+
 <h3>1. onfocus와 onblur</h3>
-<div id="prob9.1">
+<div id="prob9_1">
     <p>브라우저 바깥을 선택하면 배경화면이 회색, 브라우저를 선택하면 배경화면이 흰 색</p>
 </div>
+<hr>
+
+<h3>2. 라디오버튼을 선택해 해당하는 이미지 출력하기</h3>
+<div id="prob9_2">
+    <label onclick="loadFruitImg()">
+        <input type="radio" name="fruits" value="../images/9.4_banana.jpg" checked>바나나
+    </label>
+    <label onclick="loadFruitImg()">
+        <input type="radio" name="fruits" value="../images/9.4_mango.jpg">망고
+    </label>
+    <label onclick="loadFruitImg()">
+        <input type="radio" name="fruits" value="../images/9.4_orange.jpg">오렌지
+    </label>
+    <br>
+    <img src="../images/9.4_orange.jpg" alt="." height="200">
+</div>
+<hr>
+
+<h3>계산기 만들기</h3>
+<div id="prob9_3">
+    <p>수식을 입력하고 enter키를 누르세요</p>
+    식 <input type="text" id="expression" onkeydown="calculate(event)"><br>
+    값 <input type="text" id="answer">
+</div>
+<hr>
+
+<h3>이미지 커서 만들기</h3>
+<div id="prob9_4">
+    <button onclick="showImgCursor()">cursor 이미지 보이기</button>
+    <button onclick="hideImgCursor()">cursor 이미지 지우기</button>
+    <div id="imgCursor">
+        <img src="../images/9.6_heart.png" alt=".">
+    </div>
+</div>
+<hr>
+
+<h3>마우스를 위로 굴리면 확대, 마우스를 아래로 굴리면 축소</h3>
+<div id="prob9_6" >
+    <img src="../images/8.1_dog.jpg" alt="dog" width="500" onwheel="zoomInOut(event)">
+</div>
+<hr>
+
+<h3>아이템을 클릭하면 1.3배 크기로</h3>
+<div id="prob9_8">
+    <p>2월에 해야할 일들</p>
+    <ul>
+        <li>모각코 자바스크립트</li>
+        <li>웹플밍 책 끝내기</li>
+        <li>모던자바스크립트, 리액트</li>
+        <li>웹스톰 블로그에 정리하기</li>
+    </ul>
+</div>
+<script>
+    var liList = document.querySelectorAll("#prob9_8 li");
+    console.log(liList.length);
+    for(var i=0;i<liList.length;i++){
+        liList[i].addEventListener("click", fontSize);
+    }
+</script>
+<hr>
+
+<h3>아이템에 마우스를 올리면 설명 출력하기</h3>
+<div id="prob9_9"></div>
 </body>
 </html>
