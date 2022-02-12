@@ -6,3 +6,16 @@
     width: 60px;
     height: 60px;
 }
+
+/* prob9_4 */
+#prob9_4 #imgCursor{
+    display: none;
+}
+#imgCursor img{
+    width: 30px;
+}
+
+/* prob9_8 */
+#prob9_8 li:hover{
+    cursor: pointer;
+}
