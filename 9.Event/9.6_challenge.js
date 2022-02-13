@@ -91,17 +91,40 @@ function zoomInOut(e){
 }
 
 //prob9_8
-var lastLiIdx = null;
+var previousLiIdx = null;
 function fontSize(e){
     var clickedLi = e.currentTarget;
-    console.log(clickedLi);
     for(var i=0; i<liList.length; i++){
         if(liList[i] == clickedLi){
             clickedLi.style.fontSize = "1.3rem";
-            if(lastLiIdx != null){
-                liList[lastLiIdx].style.fontSize = "1rem";
+            if(previousLiIdx != null){
+                liList[previousLiIdx].style.fontSize = "1rem";
             }
-            lastLiIdx = i;
+
+            if(previousLiIdx == i){
+                previousLiIdx = null;
+            }
+            else{
+                previousLiIdx = i;
+            }
+        }
+    }
+}
+
+//prob9_9
+function viewMore(e){
+    var onMouseLi = e.currentTarget;
+    for(i=0; i<wishList.length; i++){
+        if(onMouseLi == wishList[i]){
+            viewMoreDiv[i].style.display = "inline-block";
+        }
+    }
+}
+function hideViewMore(e){
+    var onMouseLi = e.currentTarget;
+    for(i=0; i<wishList.length; i++){
+        if(onMouseLi == wishList[i]){
+            viewMoreDiv[i].style.display = "none";
         }
     }
 }

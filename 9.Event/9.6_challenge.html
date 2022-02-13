@@ -156,7 +156,7 @@
 </div>
 <hr>
 
-<h3>계산기 만들기</h3>
+<h3>3. 계산기 만들기</h3>
 <div id="prob9_3">
     <p>수식을 입력하고 enter키를 누르세요</p>
     식 <input type="text" id="expression" onkeydown="calculate(event)"><br>
@@ -164,7 +164,7 @@
 </div>
 <hr>
 
-<h3>이미지 커서 만들기</h3>
+<h3>4. 이미지 커서 만들기</h3>
 <div id="prob9_4">
     <button onclick="showImgCursor()">cursor 이미지 보이기</button>
     <button onclick="hideImgCursor()">cursor 이미지 지우기</button>
@@ -174,13 +174,13 @@
 </div>
 <hr>
 
-<h3>마우스를 위로 굴리면 확대, 마우스를 아래로 굴리면 축소</h3>
+<h3>6. 마우스를 위로 굴리면 확대, 마우스를 아래로 굴리면 축소</h3>
 <div id="prob9_6" >
     <img src="../images/8.1_dog.jpg" alt="dog" width="500" onwheel="zoomInOut(event)">
 </div>
 <hr>
 
-<h3>아이템을 클릭하면 1.3배 크기로</h3>
+<h3>8. 아이템을 클릭하면 1.3배 크기로</h3>
 <div id="prob9_8">
     <p>2월에 해야할 일들</p>
     <ul>
@@ -192,14 +192,62 @@
 </div>
 <script>
     var liList = document.querySelectorAll("#prob9_8 li");
-    console.log(liList.length);
     for(var i=0;i<liList.length;i++){
         liList[i].addEventListener("click", fontSize);
     }
 </script>
 <hr>
 
-<h3>아이템에 마우스를 올리면 설명 출력하기</h3>
-<div id="prob9_9"></div>
+<h3>9. 아이템에 마우스를 올리면 설명 출력하기</h3>
+<div id="prob9_9">
+    <p>2022년 하고 싶은 일</p>
+    <ul>
+        <li>프로젝트 해보기</li>
+        <li>피부 관리하기</li>
+        <li>인턴이나 부트캠프</li>
+    </ul>
+    <div id="li01">배운 내용을 바탕으로 프로젝트를 진행해보고싶다.</div>
+    <div id="li02">피부과에서 피부 흉터들 채우고싶다. 돈 모으기!</div>
+    <div id="li03">학교 연계 인턴도 좋고 우테코같은 과정도 거치고싶다.</div>
+</div>
+<script>
+    var wishList = document.querySelectorAll("#prob9_9 li");
+    var viewMoreDiv = document.querySelectorAll("#prob9_9>div");
+    for(i=0; i<wishList.length; i++){
+        wishList[i].addEventListener("mouseover", viewMore);
+        wishList[i].addEventListener("mouseout", hideViewMore);
+    }
+</script>
+<hr>
+
+<h3>10. 계산기 만들기</h3>
+<div id="prob9_10">
+    <input type="text" id="expressionBox" value="0">
+    <br>
+    <button>BACK</button>
+    <button >CE</button>
+    <button>C</button>
+    <button>=</button>
+    <br>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>/</button>
+    <br>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>*</button>
+    <br>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>-</button>
+    <br>
+    <button>NONE</button>
+    <button>0</button>
+    <button>.</button>
+    <button>+</button>
+</div>
 </body>
 </html>
