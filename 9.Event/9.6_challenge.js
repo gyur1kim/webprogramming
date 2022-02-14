@@ -128,3 +128,13 @@ function hideViewMore(e){
         }
     }
 }
+
+//prob9_10
+var expBox = document.getElementById("expressionBox");
+var exp = "";
+function num(){
+    var n = this.innerHTML;
+    switch(n){
+        case "1" : exp+= Number(n)
+    }
+}
