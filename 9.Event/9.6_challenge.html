@@ -224,30 +224,30 @@
 <div id="prob9_10">
     <input type="text" id="expressionBox" value="0">
     <br>
-    <button>BACK</button>
-    <button >CE</button>
-    <button>C</button>
-    <button>=</button>
+    <button onclick="pressButton(this)">BACK</button>
+    <button onclick="pressButton(this)">C</button>
+    <button onclick="pressButton(this)">CE</button>
+    <button onclick="result()">=</button>
     <br>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>/</button>
+    <button onclick="pressButton(this)">7</button>
+    <button onclick="pressButton(this)">8</button>
+    <button onclick="pressButton(this)">9</button>
+    <button onclick="pressButton(this)">/</button>
     <br>
-    <button onclick="num()">4</button>
-    <button onclick="num()">5</button>
-    <button onclick="num()">6</button>
-    <button>*</button>
+    <button onclick="pressButton(this)">4</button>
+    <button onclick="pressButton(this)">5</button>
+    <button onclick="pressButton(this)">6</button>
+    <button onclick="pressButton(this)">*</button>
     <br>
-    <button onclick="num()">1</button>
-    <button onclick="num()">2</button>
-    <button onclick="num()">3</button>
-    <button>-</button>
+    <button onclick="pressButton(this)">1</button>
+    <button onclick="pressButton(this)">2</button>
+    <button onclick="pressButton(this)">3</button>
+    <button onclick="pressButton(this)">-</button>
     <br>
     <button>NONE</button>
-    <button>0</button>
-    <button>.</button>
-    <button>+</button>
+    <button onclick="pressButton(this)">0</button>
+    <button onclick="pressButton(this)">.</button>
+    <button onclick="pressButton(this)">+</button>
 </div>
 <script>
     var expBox = document.getElementById("expressionBox");

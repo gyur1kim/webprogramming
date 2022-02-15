@@ -130,13 +130,14 @@ function hideViewMore(e){
 }
 
 //prob9_10
-var expBox = document.getElementById("expressionBox");
-var exp = "";
-function num(){
-    var n = this.innerHTML;
-    console.log(this)
-    console.log(n);
+var exp = "0";
+function pressButton(obj){
+    var n = obj.innerHTML;
     switch(n){
+        case "0" : if(exp === "0"){
+            exp = "0"
+            break;
+        }
         case "1" :
         case "2" :
         case "3" :
@@ -145,9 +146,51 @@ function num(){
         case "6" :
         case "7" :
         case "8" :
-        case "9" : exp+= Number(n); break;
-        default :
-            console.log("안녕")
+        case "9" :
+            if(exp === "0"){
+                exp = ""
+            }
+            exp += n;
+            break;
+        case "BACK" :
+        case "C" :
+            if(exp.length === 1){
+                exp = "0";
+            }
+            else{
+                exp = exp.slice(0, exp.length-1)
+            }
+            break;
+        case "CE" :
+            exp="0";
+            break;
+        case "/" :
+        case "*" :
+        case "-" :
+        case "+" :
+            var tmp = exp.slice(-1);
+            if(tmp==="/"||tmp==="*"||tmp==="+"||tmp==="-"||tmp==="."||(exp.length===1&&tmp==="0")){
+                break;
+            }
+            else{
+                exp += n;
+                break;
+            }
+        case "." :
+            var tmp = exp.slice(-1);
+            if(tmp==="/"||tmp==="*"||tmp==="+"||tmp==="-"||tmp==="."){
+                break;
+            }
+            else{
+                exp += n;
+                break;
+            }
     }
-    expBox.innerHTML = exp;
+    expBox.value = exp;
+}
+
+function result(){
+    exp = eval(exp);
+    expBox.value = exp;
+    exp = "0";
 }
