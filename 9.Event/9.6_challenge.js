@@ -134,7 +134,20 @@ var expBox = document.getElementById("expressionBox");
 var exp = "";
 function num(){
     var n = this.innerHTML;
+    console.log(this)
+    console.log(n);
     switch(n){
-        case "1" : exp+= Number(n)
+        case "1" :
+        case "2" :
+        case "3" :
+        case "4" :
+        case "5" :
+        case "6" :
+        case "7" :
+        case "8" :
+        case "9" : exp+= Number(n); break;
+        default :
+            console.log("안녕")
     }
+    expBox.innerHTML = exp;
 }
