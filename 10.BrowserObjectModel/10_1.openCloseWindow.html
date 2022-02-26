@@ -10,10 +10,12 @@
         }
         function closeNewWindow(){
             if(newWin == null || newWin.closed){
+                console.log("윈도우가 생성되지 않았음");
                 return;
             }
             else{
-                newWin.closed;
+                console.log("윈도우 끌거임");
+                newWin.close();
             }
         }
     </script>
