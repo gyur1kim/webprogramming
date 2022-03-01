@@ -6,20 +6,22 @@
 </head>
 <body>
 <h3>이미지에 마우스를 올리면 3초 뒤 네이버로 연결하기</h3>
-
+<img id="img" src="../images/10.2_naver.png" alt="" onmouseover="startTimer()" onmouseout="cancelTimer()">
 <script>
     var timeID = null;
+    var myWin = null;
     function startTimer(){
-        timeID = setTimeout("load('https://www.naver.com')", time);
+        timeID = setTimeout("load('https://www.naver.com')", 3000);
         document.getElementById("img").title = "타이머 작동 시작..";
     }
-    function cancleTimer(){
+    function cancelTimer(){
         if(timeID != null){
             clearTimeout(timeID);
+
         }
     }
     function load(url){
-        window.location = url;
+        window.open(url, myWin, "width=400, height=300");
     }
 </script>
 </body>
