@@ -14,8 +14,12 @@
 <button id="small">작아지기</button>
 <script>
 // document.getElementById("left").addEventListener("click", ()=> window.moveBy(-10, 0))
-document.getElementById("left").addEventListener("click", function(){window.moveBy(-10, 0)})
-document.getElementById("right").addEventListener("click", ()=> window.moveBy(10, 0))
+document.getElementById("left").addEventListener("click", function(){window.moveBy(-10, 0)});
+document.getElementById("right").addEventListener("click", ()=> window.moveBy(10, 0));
+document.getElementById("up").addEventListener("click", ()=> self.moveBy(0, -10));
+document.getElementById("down").addEventListener("click", ()=> moveBy(0, 10));
+document.getElementById("large").addEventListener("click", ()=> resizeBy(10, 10));
+document.getElementById("small").addEventListener("click", ()=> resizeBy(-10, -10));
 </script>
 </body>
 </html>
