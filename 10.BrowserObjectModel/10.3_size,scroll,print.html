@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>윈도우 크기 조절, 스크롤, 프린트</title>
+    <script src="10.3_scroll.js"></script>
 </head>
 <body>
 <h3>윈도우 크기와 위치 조절</h3>
@@ -12,8 +13,55 @@
 <button id="down">아래로</button>
 <button id="large">커지기</button>
 <button id="small">작아지기</button>
+<hr>
+<h3>자동 스크롤 버튼</h3>
+<button onclick="startScroll(1000)">자동으로 스크롤 내리기</button>
+<button onclick="stopScroll()">스크롤 멈추기</button>
+<p>
+    점점 좁아지던 골목의 막힌 끝에 서서<br>
+    외투 위의 먼지를 털다 웃었어<br>
+    벽에 기대어 앉으며 짐을 내려놓으니<br>
+    한 줌의 희망이 그토록 무거웠구나<br>
+    탓할 무언가를 애써 떠올려봐도<br>
+    오직 나만의 어리석음 뿐이었네<br>
+    나 조금 누우면 안 될까<br>
+    잠깐 잠들면 안 될까<br>
+    날도 저무는데<br>
+    아무도 없는데<br>
+    나 조금 누우면 안 될까<br>
+    이대로 잠들면 안 될까<br>
+    따뜻한 꿈속에서<br>
+    조금 쉬고 올 거야<br>
+    많은 게 달라지고 변하고 시들어 가고<br>
+    애써 감춰온 나의 지친 마음도<br>
+    더는 필요 없을 자존심을 내려놓으니<br>
+    이젠 나 자신을 가엾어해도 되겠지<br>
+    탓할 무언가를 애써 떠올려봐도<br>
+    오직 나만의 어리석음 뿐이었네<br>
+    나 조금 누우면 안 될까<br>
+    잠깐 잠들면 안 될까<br>
+    날도 저무는데<br>
+    아무도 없는데<br>
+    나 조금 누우면 안 될까<br>
+    이대로 잠들면 안 될까<br>
+    따뜻한 꿈속에서<br>
+    못다한 악수와 건배를 나누며<br>
+    이제 와 뭘 어쩌겠냐고 웃으며 웃으며<br>
+    모두 보고 싶다<br>
+    나 조금 누우면 안 될까<br>
+    잠깐 잠들면 안 될까<br>
+    날도 저무는데<br>
+    아무도 없는데<br>
+    나 조금 누우면 안 될까<br>
+    이대로 잠들면 안 될까<br>
+    따뜻한 꿈속에서<br>
+    조금 쉬고 올 거야<br>
+</p>
+<hr>
+<h3>페이지 프린트하기</h3>
+<button onclick="window.print()">프린트하기</button>
 <script>
-// document.getElementById("left").addEventListener("click", ()=> window.moveBy(-10, 0))
+//크롬에서는 보안상의 이유로 작동하지 않음..!!
 document.getElementById("left").addEventListener("click", function(){window.moveBy(-10, 0)});
 document.getElementById("right").addEventListener("click", ()=> window.moveBy(10, 0));
 document.getElementById("up").addEventListener("click", ()=> self.moveBy(0, -10));
