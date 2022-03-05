@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>윈도우 크기 조절, 스크롤, 프린트</title>
     <script src="10.3_scroll.js"></script>
+    <style>
+        body{
+            -webkit-print-color-adjust: exact;
+        }
+    </style>
 </head>
 <body>
 <h3>윈도우 크기와 위치 조절</h3>
@@ -60,6 +65,15 @@
 <hr>
 <h3>페이지 프린트하기</h3>
 <button onclick="window.print()">프린트하기</button>
+<hr>
+<h3>프린트 할 때 회사 로고가 나오도록 하기</h3>
+onbeforeprint, onafterprint를 이용합니다.
+<ol>
+    <li>window 객체에 onbeforeprint 리스너 호출</li>
+    <li>웹 페이지 프린트(브라우저가 웹 페이지를 프린터로 전송함)</li>
+    <li>window 객체에 onafterprint 리스너 호출</li>
+</ol>
+* 배경 이미지가 보이지 않는다면 옵션에서 배경 그래픽을 선택할 것!
 <script>
 //크롬에서는 보안상의 이유로 작동하지 않음..!!
 document.getElementById("left").addEventListener("click", function(){window.moveBy(-10, 0)});
