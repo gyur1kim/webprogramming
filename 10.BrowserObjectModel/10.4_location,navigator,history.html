@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location, navigator</title>
+    <style>
+        #div{
+            border: 3px solid mediumseagreen;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function load(){
+            var select = document.getElementById("site");
+            window.location = select.options[select.selectedIndex].value;
+        }
+        function printNavigator(){
+            var text = "<span>appCodeName</span> : " + navigator.appCodeName + "<br>";
+            text += "<span>appName</span> : " + navigator.appName + "<br>";
+            text += "<span>appVersion</span> : " + navigator.appVersion + "<br>";
+            text += "<span>platform</span> : " + navigator.platform + "<br>";
+            text += "<span>product</span> : " + navigator.product + "<br>";
+            text += "<span>userAgent</span> : " + navigator.userAgent + "<br>";
+            text += "<span>vendor</span> : " + navigator.vendor + "<br>";
+            text += "<span>language</span> : " + navigator.language + "<br>";
+            text += "<span>onLine</span> : " + navigator.onLine + "<br>";
+            text += "<span>coockieEnabled</span> : " + navigator.cookieEnabled + "<br>";
+            text += "<span>javaEnabled</span> : " + navigator.javaEnabled() + "<br>";
+            text += "<span>plugins.length</span> : " + navigator.plugins.length + "<br>";
+            for(j=0;j<navigator.plugins.length;j++){
+                text += "plugins" + j + " : <blockquote>";
+                text += navigator.plugins[j].name + "<br>";
+                text += "<i>" + navigator.plugins[j].description + "</i><br>";
+                text += navigator.plugins[j].filename + "</blockquote>";
+            }
+            var div = document.getElementById("div");
+            div.innerHTML = text;
+        }
+    </script>
+</head>
+<body onload="printNavigator()">
+<h3>window.location으로 웹사이트 접속하기</h3>
+사이트 선택하기 :
+<select id="site">
+    <option value="https://www.naver.com">네이버</option>
+    <option value="https://www.google.com">구글</option>
+    <option value="https://www.microsoft.com">마이크로소프트</option>
+</select>
+<br>
+<button onclick="load()">접속하기</button>
+<hr>
+<h3>navigator 객체 - 브라우저에 관한 정보 출력하기</h3>
+아래에 브라우저에 관련된 내용을 출력합니다.
+<div id="div"></div>
+<hr>
+<h3>history 객체 활용</h3>
+<button onclick="history.back()">뒤로 가기</button>
+<button onclick="history.forward()">앞으로 가기</button>
+<button onclick="history.go(-2)">상대적 이동(go(-2))</button>
+</body>
+</html>
