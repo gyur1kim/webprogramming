@@ -20,18 +20,17 @@ function loading() {
     div.style.display = "inline-block";
     div.style.position = "absolute";
     div.style.left = parseInt(Math.random()*x) + "px";
-    while(topValue <= y){
-        console.log(topValue);
-        setTimeout(falling, 500);
-        if(topValue > y){
-            break;
-        }
-    }
+
+    var interval = setInterval("falling()", 500);
 
 }
 
 function falling(){
     var div = document.querySelector("#snow>div");
     div.style.top = topValue + "px";
+    console.log(topValue);
     topValue += 10;
+    if(topValue>100){
+        topValue = 0;
+    }
 }
