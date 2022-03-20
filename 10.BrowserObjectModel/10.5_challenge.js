@@ -1,4 +1,6 @@
 var topValue = 0;
+var x = window.innerWidth;
+var y = window.innerHeight;
 function loading() {
     // var div = document.querySelectorAll("#snow>div");
     // var x = window.innerWidth;
@@ -15,13 +17,12 @@ function loading() {
     //     })
     // }
     var div = document.querySelector("#snow>div");
-    var x = window.innerWidth;
-    var y = window.innerHeight;
+
     div.style.display = "inline-block";
     div.style.position = "absolute";
     div.style.left = parseInt(Math.random()*x) + "px";
 
-    var interval = setInterval("falling()", 500);
+    setInterval("falling()", 100);
 
 }
 
@@ -30,7 +31,9 @@ function falling(){
     div.style.top = topValue + "px";
     console.log(topValue);
     topValue += 10;
-    if(topValue>100){
+    if(topValue>500){
         topValue = 0;
+        div.style.top = topValue + "px";
+        div.style.left = parseInt(Math.random()*x) + "px";
     }
 }
