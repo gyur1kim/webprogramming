@@ -8,6 +8,7 @@
 <canvas id="canvas1" width="150" height="100" style="background-color: lightsteelblue"></canvas>
 <canvas id="canvas2" width="150" height="100" style="background-color: palevioletred"></canvas>
 <canvas id="canvas3" width="300" height="150" style="background-color: yellow"></canvas>
+<canvas id="myCanvas" style="background-color: aliceblue" width="250" height="150"></canvas>
 <script>
     let canvas = document.getElementById("canvas1");
     let context = canvas.getContext("2d");
@@ -15,6 +16,23 @@
     context.strokeStyle = "black";
     context.rect(20, 20, 50, 50);
     context.stroke();
+
+    let canvas1 = document.getElementById("myCanvas");
+    let context1 = canvas1.getContext("2d");
+
+    context1.beginPath();
+    context1.strokeStyle = "blue";
+    context1.rect(30, 30, 50, 50);
+    context1.stroke();
+
+    context1.beginPath();
+    context1.fillStyle = "violet";
+    context1.rect(60, 60, 50, 50);
+    context1.stroke();
+
+    context1.font;
+    context1.fillStyle = "green";
+    context1.fillText("text in canvas", 100, 50);
 </script>
 </body>
 </html>
