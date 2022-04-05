@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="can" height="300" width="300" style="background-color: #f8b959"></canvas>
+
+<script>
+    let canvas = document.getElementById("can");
+    let context = canvas.getContext("2d");
+
+    //일반 도형 그리기
+    context.beginPath();
+    context.strokeStyle = "red";
+    context.moveTo(120, 20);
+    context.lineTo(20, 50);
+    context.lineTo(220, 50);
+    // context.beginPath();    //아직 안닫았는데 새로 선언하면 여지껏 그린 것 다 사라짐.
+    context.closePath();        //닫힌 도형이 그려짐.
+    context.stroke();
+
+    //원호 그리기
+
+</script>
+</body>
+</html>
