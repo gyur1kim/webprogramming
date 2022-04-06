@@ -5,23 +5,52 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="can" height="300" width="300" style="background-color: #f8b959"></canvas>
+<canvas id="can1" height="300" width="300" style="background-color: #f8b959"></canvas>
+<canvas id="can2" height="600" width="600" style="background-color: #d8e0b2"></canvas>
 
 <script>
-    let canvas = document.getElementById("can");
-    let context = canvas.getContext("2d");
+    let canvas1 = document.getElementById("can1");
+    let context1 = canvas1.getContext("2d");
+
+    let canvas2 = document.getElementById("can2");
+    let context2 = canvas2.getContext("2d");
 
     //일반 도형 그리기
-    context.beginPath();
-    context.strokeStyle = "red";
-    context.moveTo(120, 20);
-    context.lineTo(20, 50);
-    context.lineTo(220, 50);
-    // context.beginPath();    //아직 안닫았는데 새로 선언하면 여지껏 그린 것 다 사라짐.
-    context.closePath();        //닫힌 도형이 그려짐.
-    context.stroke();
+    context1.beginPath();
+    context1.strokeStyle = "red";
+    context1.moveTo(120, 20);
+    context1.lineTo(20, 50);
+    context1.lineTo(220, 50);
+    // context1.beginPath();    //아직 안닫았는데 새로 선언하면 여지껏 그린 것 다 사라짐.
+    context1.closePath();        //닫힌 도형이 그려짐.
+    context1.stroke();
 
     //원호 그리기
+    context2.beginPath();
+    context2.strokeStyle = "red";
+    context2.moveTo(300, 100);
+    context2.lineTo(300, 500);
+    context2.moveTo(100, 300);
+    context2.lineTo(500, 300);
+    context2.stroke();
+
+    context2.beginPath();
+    context2.strokeStyle = "black";
+    context2.arc(300, 300, 100, 0, 1.5*Math.PI, false);     //각도는 원주로 계산, pi/180이 1도
+    context2.stroke();
+
+    context2.beginPath();
+    context2.strokeStyle = "darkgreen";
+    context2.arc(300, 300, 150, Math.PI/2, Math.PI, true);     //각도는 원주로 계산, pi/180이 1도
+    context2.stroke();
+
+    context2.beginPath();
+    context2.font = "20px Gothic"
+    context2.fillText("0", 500, 300);
+    context2.fillText("파이/2", 300, 500);
+    context2.fillText("파이", 100, 300);
+    context2.fillText("3파이/2", 300, 100);
+    context2.stroke();
 
 </script>
 </body>
