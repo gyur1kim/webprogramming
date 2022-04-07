@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="drawCanvas" width="600" height="600" style="background-color: aliceblue"></canvas>
+
+<script>
+    let canvas, context;
+    let startX=0, startY=0;
+    let isDragging = false;
+
+    function init(){
+        canvas = document.getElementById("drawCanvas");
+        context = canvas.getContext("2d");
+        context.lineWidth = 2
+        context.strokeStyle = "blue";
+
+        canvas.addEventListener("mouseover", function(e){e.style.cursor = "crosshair"});
+        canvas.addEventListener("mousedown", function (e) {down(e)}, false);
+        canvas.addEventListener("mouseup", function (e) {up(e)}, false);
+        canvas.addEventListener("mousemove", function (e) {move(e)}, false);
+        canvas.addEventListener("mouseout", function (e) {out(e)}, false);
+    }
+    function draw(curX, curY){
+        context.beginPath();
+        context.moveTo(startX, startY);
+        context.lineTo(curX, curY);
+        context.stroke();
+    }
+    function down(e){
+        startX = e.offsetX;
+        startY = e.offsetY;
+
+        isDragging = true;
+        console.log(isDragging);
+    }
+    function up(e){
+        isDragging = false;
+    }
+    function move(e){
+        if(!isDragging){
+            return;
+        }
+        let curX = e.offsetX;
+        let curY = e.offsetY;
+        draw(curX, curY);
+        startX = curX;
+        startY = curY;
+    }
+    function out(e){
+        isDragging = false;
+    }
+</script>
+</body>
+</html>
