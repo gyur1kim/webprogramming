@@ -3,56 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="11.4_drawOnCanvas.css">
 </head>
 <body>
-<canvas id="drawCanvas" width="600" height="600" style="background-color: aliceblue"></canvas>
 
-<script>
-    let canvas, context;
-    let startX=0, startY=0;
-    let isDragging = false;
+<div id="tools">
+    <div id="nowPenSize"></div>
+    <div id="penSize">
+        <input type="range" min="1" max="15">
+    </div>
+    <div id="nowColor"></div>
+    <div id="colorPicker">
+        <div id="black"></div>
+        <div id="darkgray"></div>
+        <div id="darkred"></div>
+        <div id="red"></div>
+        <div id="darkorange"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+        <div id="dodgerblue"></div>
+        <div id="midnightblue"></div>
+        <div id="rebeccapurple"></div>
+        <div id="white"></div>
+        <div id="gainsboro"></div>
+        <div id="brown"></div>
+        <div id="pink"></div>
+        <div id="orange"></div>
+        <div id="bisque"></div>
+        <div id="greenyellow"></div>
+        <div id="lightblue"></div>
+        <div id="steelblue"></div>
+        <div id="lavender"></div>
+    </div>
+    <button id="clear">모두 지우기</button>
+</div>
 
-    function init(){
-        canvas = document.getElementById("drawCanvas");
-        context = canvas.getContext("2d");
-        context.lineWidth = 2
-        context.strokeStyle = "blue";
+<br>
 
-        canvas.addEventListener("mouseover", function(e){e.style.cursor = "crosshair"});
-        canvas.addEventListener("mousedown", function (e) {down(e)}, false);
-        canvas.addEventListener("mouseup", function (e) {up(e)}, false);
-        canvas.addEventListener("mousemove", function (e) {move(e)}, false);
-        canvas.addEventListener("mouseout", function (e) {out(e)}, false);
-    }
-    function draw(curX, curY){
-        context.beginPath();
-        context.moveTo(startX, startY);
-        context.lineTo(curX, curY);
-        context.stroke();
-    }
-    function down(e){
-        startX = e.offsetX;
-        startY = e.offsetY;
-
-        isDragging = true;
-        console.log(isDragging);
-    }
-    function up(e){
-        isDragging = false;
-    }
-    function move(e){
-        if(!isDragging){
-            return;
-        }
-        let curX = e.offsetX;
-        let curY = e.offsetY;
-        draw(curX, curY);
-        startX = curX;
-        startY = curY;
-    }
-    function out(e){
-        isDragging = false;
-    }
-</script>
+<canvas id="drawCanvas" width="600" height="600" style="background-color: white"></canvas>
+<div id="nowCanvasSize"></div>
+<script src="11.4_drawOnCanvas.js"></script>
 </body>
 </html>

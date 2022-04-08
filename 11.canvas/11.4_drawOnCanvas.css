@@ -1,0 +1,43 @@
+body{
+    background-color: #f8f8f8;
+}
+canvas{
+    box-shadow: 0 0 5px #ececec;
+}
+#tools{
+    width: 700px;
+    display: flex;
+    align-items: center;
+}
+#nowPenSize{
+    border: 1px solid dimgray;
+    border-radius: 50%;
+}
+option>span{
+    width: 20px;
+    height: 1px;
+    background-color: black;
+}
+#nowColor{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid dimgray;
+    margin-right: 15px;
+}
+#colorPicker{
+    flex:0.5;
+}
+#colorPicker>div{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid dimgray;
+
+    cursor: pointer;
+}
+
+#nowCanvasSize{
+    cursor: pointer;
+}
