@@ -5,18 +5,25 @@ canvas{
     box-shadow: 0 0 5px #ececec;
 }
 #tools{
-    width: 700px;
+    width: 500px;
     display: flex;
     align-items: center;
+}
+#nowPenSizeDiv{
+    flex:0.1;
+    text-align: center;
 }
 #nowPenSize{
     border: 1px solid dimgray;
     border-radius: 50%;
 }
-option>span{
-    width: 20px;
-    height: 1px;
-    background-color: black;
+
+#penSize{
+    flex: 0.1;
+}
+
+#nowColorDiv{
+    flex: 0.1;
 }
 #nowColor{
     width: 30px;
@@ -26,7 +33,7 @@ option>span{
     margin-right: 15px;
 }
 #colorPicker{
-    flex:0.5;
+    flex:0.6;
 }
 #colorPicker>div{
     width: 15px;

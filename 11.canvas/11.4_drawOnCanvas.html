@@ -9,11 +9,21 @@
 <body>
 
 <div id="tools">
-    <div id="nowPenSize"></div>
-    <div id="penSize">
-        <input type="range" min="1" max="15">
+    <div id="nowPenSizeDiv">
+        <div id="nowPenSize"></div>
     </div>
-    <div id="nowColor"></div>
+    <div id="penSize">
+        <select name="penSize" id="selectPenSize">
+            <option value="2">2px</option>
+            <option value="4">4px</option>
+            <option value="6">6px</option>
+            <option value="8">8px</option>
+            <option value="10">10px</option>
+        </select>
+    </div>
+    <div id="nowColorDiv">
+        <div id="nowColor"></div>
+    </div>
     <div id="colorPicker">
         <div id="black"></div>
         <div id="darkgray"></div>

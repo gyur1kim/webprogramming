@@ -25,7 +25,6 @@ function down(e){
     startY = e.offsetY;
 
     isDragging = true;
-    console.log(isDragging);
 }
 function up(e){
     isDragging = false;
@@ -46,20 +45,20 @@ function out(e){
 
 
 let nowPenSize = document.querySelector("#nowPenSize");
-let penSize = document.querySelector("#penSize>input");
-
-//펜 크기 선택 관련
-nowPenSize.style.width = penSize.value + "px";
-nowPenSize.style.height = penSize.value + "px"
-
-console.log(penSize.value);
+let penSize = document.querySelector("#penSize>select");
 
 //펜 크기 관련
 nowPenSize.style.width = context.lineWidth + "px";
 nowPenSize.style.height = context.lineWidth + "px";
 nowPenSize.style.backgroundColor = context.strokeStyle;
-nowPenSize.innerHTML = penSize.value + "px";
 
+//펜 크기 선택 관련
+penSize.addEventListener("change", (e)=>{
+    console.log(e.target.value);
+    context.lineWidth = e.target.value;
+    nowPenSize.style.width = context.lineWidth + "px";
+    nowPenSize.style.height = context.lineWidth + "px";
+});
 
 //색상 선택 관련
 let colorpicker = document.querySelectorAll("#colorPicker>div");
