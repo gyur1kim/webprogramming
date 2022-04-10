@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>버튼으로 비디오 제어하기</h3>
+<hr>
+<video id="video" width="300">
+    <source src=13.1_sample1.mp4 type="video/mp4">
+</video>
+<div id="msg">이 곳에 현재 상태 출력</div>
+<button id="play">play</button>
+<button id="pause">pause</button>
+<button id="replay">replay</button>
+<button id="vol-">vol-</button>
+<button id="vol+">vol+</button>
+<button id="muteOnOff">mute on</button>
+
+<script>
+    let btns = document.getElementsByTagName("button");
+    let video = document.getElementById("video");
+    let msg = document.getElementById("msg")
+
+    for(var btn of btns){
+        btn.addEventListener("click", (e)=>{
+            let id = e.target.id;
+
+            if(id==="play"){
+                video.play();
+                msg.innerHTML = "현재 재생중";
+            }
+            else if(id==="pause"){
+                video.pause();
+                msg.innerHTML = "일시중지";
+            }
+            else if(id==="replay"){
+                video.load();
+                video.play();
+                msg.innerHTML = "처음부터 다시 재생합니다";
+            }
+            else if(id==="vol-"){
+                video.volume -= 0.1;
+                if(video.volume < 0.1) video.volume = 0;
+                msg.innerHTML = "음량 0.1 감소, 현재 볼륨 크기 : " + video.volume;
+            }
+            else if(id==="vol+"){
+                video.volume += 0.1;
+                if(video.volume > 0.9) video.volume = 1.0;
+                msg.innerHTML = "음량 0.1 증가, 현재 볼륨 크기 : " + video.volume;
+            }
+            else if(id==="muteOnOff"){
+                video.muted = !video.muted;
+                if(video.muted){
+                    e.target.innerHTML = "mute off";
+                    msg.innerHTML = "음소거";
+                }
+                else{
+                    e.target.innerHTML = "mute on";
+                    msg.innerHTML = "음소거 해제";
+
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
