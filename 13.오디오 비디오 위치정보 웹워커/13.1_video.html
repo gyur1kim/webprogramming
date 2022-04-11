@@ -9,6 +9,8 @@
 <hr>
 <video id="video" width="300">
     <source src=13.1_sample1.mp4 type="video/mp4">
+    <!--video태그를 지원하지 않는 브라우저일 경우-->
+    웹 브라우저가 video태그를 지원하지 않습니다.
 </video>
 <div id="msg">이 곳에 현재 상태 출력</div>
 <button id="play">play</button>
@@ -63,6 +65,13 @@
                 }
             }
         });
+
+        video.onloadedmetadata = function f(e){
+            alert(video.videoWidth + "x" + video.videoHeight);
+        }
+        video.onended = function (e){
+            document.body.style.backgroundColor = "aliceblue";
+        }
     }
 </script>
 </body>
