@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //워커 객체 생성.
+    //워커 태스크와 메시지를 주고 받고, 워커 태스크를 제어한다.
+    let addWorker = new Worker("13.3_webWorkers.js");
+
+    addWorker.onmessage = function (e){
+        alert(e.data);
+    }
+</script>
+</body>
+</html>
