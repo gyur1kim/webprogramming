@@ -5,7 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+<input id="from" type="text">~
+<input id="to" type="text">
+<button id="send">계산</button>
 <script>
+    let addBtn = document.getElementById("send");
     //워커 객체 생성.
     //워커 태스크와 메시지를 주고 받고, 워커 태스크를 제어한다.
     let addWorker = new Worker("13.3_webWorkers.js");
@@ -13,6 +17,14 @@
     addWorker.onmessage = function (e){
         alert(e.data);
     }
+
+    addBtn.addEventListener("click", ()=>{
+        let params = {
+            from : document.getElementById("from").value,
+            to : document.getElementById("to").value
+        };
+        addWorker.postMessage(params);
+    });
 </script>
 </body>
 </html>
