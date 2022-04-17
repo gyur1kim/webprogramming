@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>타이머를 가진 웹워커 만들기</h3>
+<hr>
+<div>
+    <span id="timer">타이머카운트</span>
+</div>
+<button id="start" onclick="start()">start</button>
+<button id="stop" onclick="stop()">stop</button>
+<script>
+    let timerWorker = new Worker("13.4_timer.js");
+</script>
+</body>
+</html>
