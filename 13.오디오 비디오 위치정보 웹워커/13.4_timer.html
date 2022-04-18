@@ -14,6 +14,18 @@
 <button id="stop" onclick="stop()">stop</button>
 <script>
     let timerWorker = new Worker("13.4_timer.js");
+
+    timerWorker.onmessage = function(e){
+        document.getElementById("timer").innerHTML = e.data;
+    }
+
+    function start(){
+        timerWorker.postMessage("start");
+    }
+
+    function stop(){
+        timerWorker.postMessage("stop");
+    }
 </script>
 </body>
 </html>
