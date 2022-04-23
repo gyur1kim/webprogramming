@@ -1,15 +1,25 @@
+//현재 재생중인 곡
 let nowPlaying;
+
+//버튼
 let playBtn;
 let nextBtn;
+
+//플레이리스트와 현재 곡의 번호
 let playlist;
-let audioBar;
 let nowIdx;
+
+//오디오 재생바
+let audioBar;
+
+//현재 재생중인지?
+let isPlaying = false;
 
 function onload(){
      playlist = document.getElementById("playlist");
      playBtn = document.getElementById("play");
      nextBtn = document.getElementById("next");
-     audioBar = document.getElementById("audio")
+     audioBar = document.getElementById("audio");
 
      playBtn.addEventListener("click", play);
      nextBtn.addEventListener("click", next);
@@ -17,14 +27,30 @@ function onload(){
 }
 
 function play(){
-    nowPlaying = playlist.options[playlist.selectedIndex].value;
-    audioBar.src = nowPlaying;
-    console.log(nowPlaying);
+    if(isPlaying){
+        return;
+    }
+
+    isPlaying = true;
+    if(playlist.selectedIndex === -1){
+        nowIdx = 0;
+    }
+    else{
+        nowIdx = playlist.selectedIndex;
+    }
+    console.log(nowIdx);
+    nowPlaying = playlist.options[nowIdx].value;
+    // audioBar.src = nowPlaying;
+    // console.log(nowPlaying);
+    audioBar.autoplay;
 }
 
 function next(){
-    nowIdx = playlist.selectedIndex;
-    nowIdx++;
-    nowPlaying = playlist.options[nowIdx].value;
-    console.log(nowPlaying);
+    if(!isPlaying){
+        return;
+    }
+    nowIdx = (++nowIdx) % playlist.length;
+    console.log(nowIdx);
+    // nowPlaying = playlist.options[nowIdx].value;
+    // console.log(nowPlaying);
 }
