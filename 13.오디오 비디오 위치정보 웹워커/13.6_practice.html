@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>학점 매기기</h3>
+<hr>
+<button id="score">점수 매기기</button>
+<div id="scoreboard"></div>
+<script>
+    let btn = document.getElementById("score");
+    let scoreboard = document.getElementById("scoreboard");
+    let scoreWorker = new Worker("13.6_score.js");
+    let score;
+
+    btn.addEventListener("click", ()=>{
+        score = parseInt(prompt("점수를 숫자로 입력하세요"));
+
+        scoreWorker.postMessage(score);
+    });
+
+    scoreWorker.onmessage = (e)=>{
+        scoreboard.innerHTML = e.data;
+    }
+</script>
+</body>
+</html>
