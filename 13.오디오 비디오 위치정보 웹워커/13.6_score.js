@@ -9,13 +9,13 @@ onmessage = (e)=>{
         postMessage(score + " = B");
     }
     else if(score<=79 && score>=70){
-        postMessage("C");
+        postMessage(`${score} = C`);
     }
     else if(score<=69 && score>=60){
-        postMessage("D");
+        postMessage(`${score} = D`);
     }
     else if(score<=59 && score>=0){
-        postMessage("F");
+        postMessage(`${score} = F`);
     }
     else{
         postMessage("제대로 된 값을 입력해주세요");

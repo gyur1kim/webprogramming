@@ -5,11 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<h3>학점 매기기</h3>
+<h3>5. 학점 매기기</h3>
 <hr>
 <button id="score">점수 매기기</button>
 <div id="scoreboard"></div>
+<hr>
+<h3>6. 곱셈하기</h3>
+<input type="text" id="a"> X <input type="text" id="b">
+<button id="multiple">곱하기</button>
+<input type="text" id="answer">
 <script>
+    //5번 문제
     let btn = document.getElementById("score");
     let scoreboard = document.getElementById("scoreboard");
     let scoreWorker = new Worker("13.6_score.js");
@@ -24,6 +30,17 @@
     scoreWorker.onmessage = (e)=>{
         scoreboard.innerHTML = e.data;
     }
+
+    //6번 문제
+    let a, b;
+    let multiBtn = document.getElementById("multiple");
+    let multipleWorker = new Worker("13.6_multiply.js")
+
+    multiBtn.addEventListener("click", ()=>{
+        a = document.getElementById("a").value;
+        b = document.getElementById("b").value;
+        multipleWorker.postMessage(a, b);
+    });
 </script>
 </body>
 </html>
