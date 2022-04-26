@@ -32,15 +32,25 @@
     }
 
     //6번 문제
-    let a, b;
+    let a, b, answer;
     let multiBtn = document.getElementById("multiple");
-    let multipleWorker = new Worker("13.6_multiply.js")
 
-    multiBtn.addEventListener("click", ()=>{
-        a = document.getElementById("a").value;
-        b = document.getElementById("b").value;
-        multipleWorker.postMessage(a, b);
-    });
+    if(window.Worker){
+        let multipleWorker = new Worker("13.6_multiply.js");
+        multiBtn.addEventListener("click", ()=>{
+            a = document.getElementById("a").value;
+            b = document.getElementById("b").value;
+            multipleWorker.postMessage([a, b]);
+        });
+
+        multipleWorker.onmessage = (e)=>{
+            answer = document.getElementById("answer");
+            answer.value = e.data;
+        }
+    }
+    else{
+        alert("이 브라우저는 웹 워커를 지원하지 않습니다");
+    }
 </script>
 </body>
 </html>
