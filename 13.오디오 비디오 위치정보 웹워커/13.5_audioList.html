@@ -6,6 +6,7 @@
     <script src="13.5_audioList.js"></script>
 </head>
 <body onload="onload()">
+<h3>음악 재생목록</h3>
 <audio id="audio" src=""></audio>
 <select name="" id="playlist" size="3">
     <option value="0번 src">0</option>
@@ -16,5 +17,14 @@
 <button id="play">play</button>
 <button id="next">next</button>
 <div>현재 연주되는 곡명이 보입니다.</div>
+<hr>
+<h3>체크박스로 선택된 곡만 재생하기</h3>
+<div id="checklist">
+    <input type="checkbox" value="곡1" id="song1">
+    <input type="checkbox" value="곡2" id="song2">
+    <input type="checkbox" value="곡3" id="song3">
+    <input type="checkbox" value="곡4" id="song4">
+</div>
+<button id="checklistPlay">선택한 곡 재생하기</button>
 </body>
 </html>
