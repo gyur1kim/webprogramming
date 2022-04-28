@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCookie(name, value, expireDate){
+        // let cookieStr = `${name} = ${escape(value)} ${((expireDate==null)?:())}`
+        let cookieStr = name + "=" + escape(value) + ((expireDate==null)?"":("; expires=" + expireDate.toGMTString()));
+        document.cookie = cookieStr;
+    }
+
+    function getCookie(name){
+        let pairs  = document.cookie.split(";");
+        for (let i=0; i<pairs.length; i++){
+            let pair = pairs[i].trim();
+            let unit = pair.split("=");
+            if(unit[0]===name){
+                return unescape(unit[1]);
+            }
+        }
+        return null;
+    }
+</script>
+</body>
+</html>
