@@ -6,23 +6,38 @@
 </head>
 <body>
 <script>
+    //쿠키 설정하기 -> 이름, 값, expireDate
     function setCookie(name, value, expireDate){
-        // let cookieStr = `${name} = ${escape(value)} ${((expireDate==null)?:())}`
-        let cookieStr = name + "=" + escape(value) + ((expireDate==null)?"":("; expires=" + expireDate.toGMTString()));
+        let cookieStr = name + "=" + escape(value) + "; " + ((expireDate==null)?"":("expires="+expireDate.toUTCString()));
         document.cookie = cookieStr;
+        console.log(cookieStr);
     }
 
     function getCookie(name){
-        let pairs  = document.cookie.split(";");
-        for (let i=0; i<pairs.length; i++){
-            let pair = pairs[i].trim();
-            let unit = pair.split("=");
-            if(unit[0]===name){
-                return unescape(unit[1]);
+        let pairs  = document.cookie.split(";").map((item)=>item.split("="));
+        console.log(pairs);
+        // for (let i=0; i<pairs.length; i++){
+        //     let pair = pairs[i].trim();
+        //     let unit = pair.split("=");
+        //     if(unit[0]===name){
+        //         return unescape(unit[1]);
+        //     }
+        // }
+        for(let i=0; i<pairs.length; i++){
+            if(pairs[i][0] === name){
+                console.log(unescape(pairs[i][1]));
             }
         }
         return null;
     }
+    let expire = new Date();
+    expire.setTime(expire.getTime() + 1000*3600*24*365);
+
+    setCookie("김규리", 1, expire);
+    setCookie("김재헌", 1);
+    setCookie("김시원", 1);
+    setCookie("김동주", 1);
+    getCookie("김규리")
 </script>
 </body>
 </html>
