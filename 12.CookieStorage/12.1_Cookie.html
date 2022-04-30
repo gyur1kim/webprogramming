@@ -10,12 +10,11 @@
     function setCookie(name, value, expireDate){
         let cookieStr = name + "=" + escape(value) + "; " + ((expireDate==null)?"":("expires="+expireDate.toUTCString()));
         document.cookie = cookieStr;
-        console.log(cookieStr);
     }
 
+    //name으로 value찾기
     function getCookie(name){
         let pairs  = document.cookie.split(";").map((item)=>item.split("="));
-        console.log(pairs);
         // for (let i=0; i<pairs.length; i++){
         //     let pair = pairs[i].trim();
         //     let unit = pair.split("=");
@@ -25,19 +24,56 @@
         // }
         for(let i=0; i<pairs.length; i++){
             if(pairs[i][0] === name){
-                console.log(unescape(pairs[i][1]));
+                // console.log(unescape(pairs[i][1]));
+                return unescape(pairs[i][1]);
             }
         }
         return null;
     }
-    let expire = new Date();
-    expire.setTime(expire.getTime() + 1000*3600*24*365);
 
-    setCookie("김규리", 1, expire);
-    setCookie("김재헌", 1);
-    setCookie("김시원", 1);
-    setCookie("김동주", 1);
-    getCookie("김규리")
+    //유저의 이름 입력받기
+    let count = 1;
+    let expire = new Date();
+    let username = prompt("이름을 입력해주세요", "");
+    if(username === ""){
+        console.log("암것도 안쳤음")
+        alert("이름을 제대로 입력하세요");
+    }
+    else if(getCookie(username) === null){
+        alert("처음 오셨군요");
+        expire.setTime(expire.getTime() + 1000*3600*24*365);
+        setCookie(username, count, expire);
+    }
+    else{
+        alert("여러 번 오셨군요");
+        expire.setTime(expire.getTime() + 1000*3600*24*365);
+        count = Number(getCookie(username)) +1;
+        setCookie(username, count, expire);
+    }
+
+
+    document.write(`<p>어서오세요, ${username}님~ ${count}번째 방문을 환영합니다!</p>`);
+
+    // let username = getCookie("username");
+    // let count = getCookie("count");
+    // let expire = new Date();
+    //
+    // if(username == null){
+    //     count = 0;
+    //     username = prompt("이름을 입력해주세요");
+    //     if(username == null){
+    //         alert("이름을 입력하시면 더 좋은 서비스를 받을 수 있습니다");
+    //         username = '아무개'
+    //     }
+    //     else{
+    //         expire.setTime(expire.getTime() + 1000*3600*24*365);
+    //         setCookie("username", count, expire);
+    //     }
+    // }
+    // count++;
+    // expire.setTime(expire.getTime() + 1000*3600*24*365);
+    // setCookie("username", count, expire);
+    // document.write(`<p>어서오세요, ${username}님~ ${count}번째 방문을 환영합니다!</p>`)
 </script>
 </body>
 </html>
