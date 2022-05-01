@@ -8,13 +8,19 @@
 <script>
     //쿠키 설정하기 -> 이름, 값, expireDate
     function setCookie(name, value, expireDate){
-        let cookieStr = name + "=" + escape(value) + "; " + ((expireDate==null)?"":("expires="+expireDate.toUTCString()));
+        let cookieStr = name + "=" + escape(value) + "; " + ((expireDate==null)?"":("expires="+expireDate.toUTCString())+";");
         document.cookie = cookieStr;
     }
 
     //name으로 value찾기
     function getCookie(name){
-        let pairs  = document.cookie.split(";").map((item)=>item.split("="));
+        let pairs  = document.cookie.split(";").map(item=>{item.split("=")});
+
+        // pairs.map((item)=> {
+        //     item.split("=");
+        //     item[0] = item[0].trim();
+        // });
+        console.log(pairs);
         // for (let i=0; i<pairs.length; i++){
         //     let pair = pairs[i].trim();
         //     let unit = pair.split("=");
@@ -22,13 +28,14 @@
         //         return unescape(unit[1]);
         //     }
         // }
-        for(let i=0; i<pairs.length; i++){
-            if(pairs[i][0] === name){
-                // console.log(unescape(pairs[i][1]));
-                return unescape(pairs[i][1]);
-            }
-        }
-        return null;
+
+        // for(let i=0; i<pairs.length; i++){
+        //     if(pairs[i][0] === name){
+        //         // console.log(unescape(pairs[i][1]));
+        //         return unescape(pairs[i][1]);
+        //     }
+        // }
+        // return null;
     }
 
     //유저의 이름 입력받기
@@ -36,8 +43,8 @@
     let expire = new Date();
     let username = prompt("이름을 입력해주세요", "");
     if(username === ""){
-        console.log("암것도 안쳤음")
-        alert("이름을 제대로 입력하세요");
+        console.log("아무런 내용을 적지 않았습니다");
+        alert("이름을 제대로 입력하세욧!");
     }
     else if(getCookie(username) === null){
         alert("처음 오셨군요");
