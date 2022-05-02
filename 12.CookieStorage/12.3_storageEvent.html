@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="12.3_storageEvent.js"></script>
+</head>
+<body>
+<h3>로컬 스토리지의 storage event</h3>
+<hr>
+<label for="item">
+    품목명 : <input type="text" id="item" size="10">
+</label>
+<label for="count">
+    개수: <input type="text" id="count" size="10">
+</label>
+<button id="save" onclick="store()">저장</button>
+<button id="retrieve" onclick="retrieve()">검색</button>
+<p>로컬 스토리지의 변경 내용(storage event)</p>
+<textarea id="textarea" cols="60" rows="5"></textarea>
+</body>
+</html>
