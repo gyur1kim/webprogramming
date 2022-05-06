@@ -16,11 +16,15 @@ onload = function(){
     showListBtn.addEventListener("click", showList);
 }
 
-function searchEng(){
-    if(!window.localStorage){
+function isAvailable(){
+    if(!window.localStorage) {
         alert("이 브라우저는 지원하지 않는 기능입니다.");
-        return;
     }
+    return;
+}
+function searchEng(){
+    isAvailable();
+
     //단어가 있는 경우 -> korean에 출력
     if(localStorage.getItem(english.value)){
         korean.value = localStorage.getItem(english.value);
@@ -32,10 +36,8 @@ function searchEng(){
 }
 
 function saveWord(){
-    if(!window.localStorage){
-        alert("이 브라우저는 지원하지 않는 기능입니다.");
-        return;
-    }
+    isAvailable()
+
     //단어가 없는 경우 -> 저장
     if(!localStorage.getItem(english.value)){
         localStorage.setItem(english.value, korean.value);
@@ -53,10 +55,8 @@ function saveWord(){
 }
 
 function deleteWord(){
-    if(!window.localStorage){
-        alert("이 브라우저는 지원하지 않는 기능입니다.");
-        return;
-    }
+    isAvailable()
+
     //영어단어 존재 -> 삭제
     if(localStorage.getItem(english.value)){
         localStorage.removeItem(english.value);
