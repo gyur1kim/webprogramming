@@ -38,7 +38,8 @@ function searchEng(){
 function saveWord(){
     isAvailable()
 
-    if(english.value === ""){
+    //단어를 적지 않은 경우 -> 저장하지 않음
+    if(english.value === "" || korean.value===""){
         alert("단어를 입력하세요.");
         return;
     }
@@ -74,5 +75,5 @@ function deleteWord(){
 function showList(){
     let win;
     //새로운 윈도우 창에 저장된 단어를 출력
-    win = window.open("12.4_wordList.html","wordList","width=400, height=300")
+    win = window.open("12.4_wordList.html","wordList","left=300, top=300, width=300, height=400")
 }
