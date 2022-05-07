@@ -38,8 +38,12 @@ function searchEng(){
 function saveWord(){
     isAvailable()
 
+    if(english.value === ""){
+        alert("단어를 입력하세요.");
+        return;
+    }
     //단어가 없는 경우 -> 저장
-    if(!localStorage.getItem(english.value)){
+    else if(!localStorage.getItem(english.value)){
         localStorage.setItem(english.value, korean.value);
     }
     //단어가 존재하는 경우 -> 수정할 것인지 묻기
@@ -68,6 +72,7 @@ function deleteWord(){
 }
 
 function showList(){
+    let win;
     //새로운 윈도우 창에 저장된 단어를 출력
-
+    win = window.open("12.4_wordList.html","wordList","width=400, height=300")
 }

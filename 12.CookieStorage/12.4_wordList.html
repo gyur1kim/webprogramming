@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>나의 단어장</h3>
+<hr>
+<table id="wordList">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<script>
+    let table = document.getElementById("wordList");
+    for(var i=0; i<window.localStorage.length; i++){
+        let parent = document.createElement("tr");
+        let num, eng, kor = document.createElement("td");
+        num.append(i);
+        eng.append(window.localStorage.key(i));
+        kor.append(window.localStorage[i]);
+
+        parent.append(num, eng, kor);
+        table.append(parent);
+    }
+</script>
+</body>
+</html>
