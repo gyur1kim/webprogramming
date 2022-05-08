@@ -19,11 +19,15 @@ onload = function(){
 function isAvailable(){
     if(!window.localStorage) {
         alert("이 브라우저는 지원하지 않는 기능입니다.");
+        return false;
     }
-    return;
+    return true;
 }
+
 function searchEng(){
-    isAvailable();
+    if(!isAvailable()){
+        return;
+    }
 
     //단어가 있는 경우 -> korean에 출력
     if(localStorage.getItem(english.value)){
@@ -36,7 +40,9 @@ function searchEng(){
 }
 
 function saveWord(){
-    isAvailable()
+    if(isAvailable() === false){
+        return;
+    }
 
     //단어를 적지 않은 경우 -> 저장하지 않음
     if(english.value === "" || korean.value===""){
@@ -60,7 +66,9 @@ function saveWord(){
 }
 
 function deleteWord(){
-    isAvailable()
+    if(!isAvailable()){
+        return;
+    }
 
     //영어단어 존재 -> 삭제
     if(localStorage.getItem(english.value)){
